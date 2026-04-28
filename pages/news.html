@@ -33,12 +33,14 @@
 
         <!-- Tag filter — Finsweet, single-select -->
         <div class="filter-bar" fs-cmsfilter-element="filters" role="group" aria-label="Filter news">
-          <span class="t-eyebrow" style="margin-right:12px">Tag</span>
-          <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Announcement" class="sr-only"> Announcement</label>
-          <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Partnership" class="sr-only"> Partnership</label>
-          <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Launch" class="sr-only"> Launch</label>
-          <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Strategy" class="sr-only"> Strategy</label>
-          <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Corporate" class="sr-only"> Corporate</label>
+          <fieldset style="border:0;padding:0;margin:0;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <legend class="t-eyebrow" style="float:left;margin-right:12px">Tag</legend>
+            <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Announcement" class="sr-only"> Announcement</label>
+            <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Partnership" class="sr-only"> Partnership</label>
+            <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Launch" class="sr-only"> Launch</label>
+            <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Strategy" class="sr-only"> Strategy</label>
+            <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Corporate" class="sr-only"> Corporate</label>
+          </fieldset>
           <button type="reset" class="btn btn--ghost" fs-cmsfilter-element="reset" style="margin-left:auto">Clear</button>
         </div>
 
@@ -50,6 +52,7 @@
             <div>
               <h2 class="card-news__title">MOTU: Legends Unite launches June 5 on Amazon Luna</h2>
               <p class="card-news__sub">GameNight cloud co-op blending roguelike deck-building with arcade mini-games, launching day-and-date with the Masters of the Universe feature film.</p>
+              <span class="filter-value" fs-cmsfilter-field="tag">Announcement</span>
             </div>
           </a>
 
@@ -58,6 +61,7 @@
             <div>
               <h2 class="card-news__title">Mattel highlights 2026 digital inflection at UBS Global Consumer Conference</h2>
               <p class="card-news__sub">Chairman and CEO Ynon Kreiz and CFO Paul Ruh point to the completion of the Mattel163 acquisition and the launch of the first two self-published digital games.</p>
+              <span class="filter-value" fs-cmsfilter-field="tag">Announcement</span>
             </div>
           </a>
 
@@ -66,6 +70,7 @@
             <div>
               <h2 class="card-news__title">UNO enters Fortnite and Roblox</h2>
               <p class="card-news__sub">UNO Royale arrives on Fortnite via UEFN with Look North World. UNO: Bridge Clash arrives on Roblox with Preloaded.</p>
+              <span class="filter-value" fs-cmsfilter-field="tag">Partnership</span>
             </div>
           </a>
 
@@ -74,6 +79,7 @@
             <div>
               <h2 class="card-news__title">Three pillars of Mattel's digital strategy</h2>
               <p class="card-news__sub">Licensing with world-class partners. Self-publishing of original mobile games. Expansion on creator platforms such as Roblox and Fortnite.</p>
+              <span class="filter-value" fs-cmsfilter-field="tag">Strategy</span>
             </div>
           </a>
 
@@ -82,10 +88,15 @@
             <div>
               <h2 class="card-news__title">Mattel to acquire full ownership of Mattel163 mobile games studio</h2>
               <p class="card-news__sub">Mattel agrees with NetEase to acquire the remaining 50% of Mattel163, the studio behind UNO!, UNO Wonder, Phase 10 and Skip-Bo.</p>
+              <span class="filter-value" fs-cmsfilter-field="tag">Corporate</span>
             </div>
           </a>
 
           <!-- …more CMS items… -->
+        </div>
+
+        <div fs-cmsfilter-element="empty" hidden style="padding:48px 0;text-align:center">
+          <p class="t-body-md muted">No news items match this filter.</p>
         </div>
 
         <!-- Pagination — use Webflow native pagination on the Collection List, 12 per page -->

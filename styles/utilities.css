@@ -15,6 +15,23 @@
   border: 0;
 }
 
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  padding: 8px 12px;
+  background: var(--mattel-red);
+  color: #fff;
+  z-index: 9999;
+  text-decoration: none;
+  border-radius: var(--radius-button);
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  transition: top 180ms ease;
+}
+.skip-link:focus { top: 8px; }
+
 /* Stack vertical rhythm */
 .stack-1 > * + * { margin-top: var(--stack-1); }
 .stack-2 > * + * { margin-top: var(--stack-2); }
@@ -73,5 +90,16 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .btn:hover,
+  .card:hover,
+  .card-game:hover,
+  .hero-copy,
+  .hero-dot[aria-current="true"] .hero-dot__bar {
+    transform: none !important;
+  }
+  .hero-copy,
+  .hero-dot[aria-current="true"] .hero-dot__bar::after {
+    animation: none !important;
   }
 }

@@ -5,8 +5,10 @@
 
   Webflow Designer note: text wrapped in {{...}} is meant to be replaced
   by Webflow CMS bindings — drop a "+ Add Field" inside the embed and
-  pick the matching CMS field. JSON-encode anywhere a CMS string might
-  contain a quote (Webflow's text-binding does NOT auto-escape JSON).
+  pick the matching CMS field. JSON-encode every CMS string binding in
+  this file before publish (quotes, backslashes and line breaks in titles
+  or summaries otherwise invalidate the whole JSON-LD block). Date fields
+  should render as ISO 8601 values.
 -->
 
 <!-- =====================================================================
@@ -89,7 +91,9 @@
 
 <!-- =====================================================================
      4. VideoGame — paste on /games/[slug] page custom code.
-     Bind {{Name}}, {{Slug}}, {{Summary}}, {{Platform}}, {{Studio}}.
+     Bind {{Name}}, {{Slug}}, {{Summary}}, {{PlatformJsonArray}}, {{Studio}}.
+     PlatformJsonArray is a JSON-safe array string generated from Platform,
+     for example ["iOS","Android"].
      ===================================================================== -->
 <script type="application/ld+json">
 {
@@ -98,7 +102,7 @@
   "name": "{{Name}}",
   "url": "https://digitalstudios.mattel.com/games/{{Slug}}",
   "description": "{{Summary}}",
-  "gamePlatform": "{{Platform}}",
+  "gamePlatform": {{PlatformJsonArray}},
   "publisher": {
     "@type": "Organization",
     "name": "Mattel Digital Studios"

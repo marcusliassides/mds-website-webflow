@@ -4,7 +4,7 @@ Run this top to bottom before flipping DNS. Every box must be ticked.
 
 ## Content
 
-- [ ] All 13 games imported into the Games CMS with correct slugs.
+- [ ] Every row in `cms-collections/games.csv` is imported into the Games CMS with correct slugs.
 - [ ] All news items imported with `Date` parsed as a real Date field (not a string).
 - [ ] Homepage hero rotator names match the 3 moments in `embeds/hero-rotator.html` (or are CMS-bound).
 - [ ] Press kit ZIPs uploaded under `/assets/press/`. Verify each download link works from a logged-out incognito window.
@@ -12,7 +12,7 @@ Run this top to bottom before flipping DNS. Every box must be ticked.
 
 ## Visual + brand
 
-- [ ] No hex literals in the Style panel. Every color is bound to a Variable.
+- [ ] No hex literals in the Style panel. Every color is bound to a Variable; CMS Color fields are the only allowed exception.
 - [ ] Font weights 400 / 600 / 700 all render — open homepage in a fresh browser, no font flash.
 - [ ] Light AND dark mode look right on Home, Games, News, Game-detail, News-detail.
 - [ ] Mattel Red (#EA0029) is used only for primary CTAs and impact moments — NOT for error states.
@@ -35,6 +35,7 @@ Run this top to bottom before flipping DNS. Every box must be ticked.
 - [ ] `/sitemap.xml` includes static pages + every CMS item.
 - [ ] `/robots.txt` matches `seo/robots.txt`.
 - [ ] All 301 redirects from `seo/redirects.json` are entered and tested.
+- [ ] Legacy news URLs from analytics are covered by explicit 301 rows, or intentionally left as 404/410.
 - [ ] Canonical URLs set on every page (no `staging.` or `webflow.io` slipping through).
 - [ ] JSON-LD validates on Schema.org's validator for Home, a Game detail, a News detail.
 
@@ -54,8 +55,9 @@ Run this top to bottom before flipping DNS. Every box must be ticked.
 
 ## Analytics + consent
 
-- [ ] GA4 measurement ID configured.
-- [ ] Cookie banner appears once on first visit, suppressed after acceptance.
+- [ ] Cookie banner DOM from `embeds/body-global.html` is present in the Footer Symbol or a global embed.
+- [ ] GA4 measurement ID configured in a consent-gated snippet that loads only after `mds:consent-change` reports `detail.accepted === true` or `mds:consent-accepted` fires.
+- [ ] Cookie banner appears once on first visit, suppressed after acceptance or decline.
 - [ ] Consent state persists across reload (check localStorage for `mds-cookie-consent`).
 - [ ] No third-party trackers fire before consent is granted.
 

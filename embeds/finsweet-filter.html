@@ -22,16 +22,16 @@
     <fieldset>
       <legend class="t-eyebrow">Platform</legend>
       <label class="filter-pill">
-        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="iOS"> Mobile
+        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="iOS, Android"> Mobile
       </label>
       <label class="filter-pill">
-        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Roblox,Fortnite"> Creator platforms
+        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Roblox, Fortnite, UEFN"> Creator platforms
       </label>
       <label class="filter-pill">
-        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Switch,PS5,Xbox,PC"> Console / PC
+        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Switch, PS5, Xbox, PC"> Console / PC
       </label>
       <label class="filter-pill">
-        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Luna,Apple Arcade"> Cloud / streaming
+        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Amazon Luna, Apple Arcade"> Cloud / streaming
       </label>
     </fieldset>
 
@@ -47,6 +47,12 @@
       <label class="filter-pill">
         <input type="checkbox" fs-cmsfilter-field="studio" fs-cmsfilter-type="any" value="Bandit Island"> Bandit Island
       </label>
+      <label class="filter-pill">
+        <input type="checkbox" fs-cmsfilter-field="studio" fs-cmsfilter-type="any" value="GameMill, Bamtang, Hutch"> Console partners
+      </label>
+      <label class="filter-pill">
+        <input type="checkbox" fs-cmsfilter-field="studio" fs-cmsfilter-type="any" value="Look North World, Preloaded, MDS Digital Experiences"> Creator / DX
+      </label>
     </fieldset>
 
     <button type="reset" class="btn btn--ghost" fs-cmsfilter-element="reset">Clear filters</button>
@@ -54,8 +60,10 @@
 
   <div fs-cmsfilter-element="list" class="grid-3">
     <!-- Webflow CMS Collection List with .card-game items.
-         Each card needs the field values rendered into hidden text or
-         data attributes that match fs-cmsfilter-field above. -->
+         Each card needs machine-readable values rendered with matching
+         fs-cmsfilter-field attributes. Use comma-separated tokens for
+         multi-value Platform/Studio fields so fs-cmsfilter-type="any"
+         can match each item independently. -->
   </div>
 
   <div fs-cmsfilter-element="empty" hidden>
@@ -64,6 +72,7 @@
 
   ===== Markup contract on /careers =====
   Same pattern with fs-cmsfilter-field set to "team", "department", "location".
+  The /news index uses the same loader with fs-cmsfilter-field="tag".
 -->
 
 <!-- Finsweet Attributes loader (CMS Filter, CMS Sort, CMS Load) -->
