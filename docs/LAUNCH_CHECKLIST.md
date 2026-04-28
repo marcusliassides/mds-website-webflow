@@ -37,7 +37,7 @@ Run this top to bottom before flipping DNS. Every box must be ticked.
 - [ ] All 301 redirects from `seo/redirects.json` are entered and tested.
 - [ ] Legacy news URLs from analytics are covered by explicit 301 rows, or intentionally left as 404/410.
 - [ ] Canonical URLs set on every page (no `staging.` or `webflow.io` slipping through).
-- [ ] JSON-LD validates on Schema.org's validator for Home, a Game detail, a News detail.
+- [ ] JSON-LD validates on Schema.org's validator for Home, a Game detail, a News detail; `DateIso` / `PlatformJsonArray` fields render machine-readable JSON.
 
 ## Performance
 

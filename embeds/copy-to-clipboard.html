@@ -4,11 +4,12 @@
   and /brand for color hex tokens.
 
   Markup contract:
-    <button class="btn btn--ghost" data-copy="https://digitalstudios.mattel.com/assets/press/...zip">
+    <button class="btn btn--ghost" data-copy="https://digitalstudios.mattel.com/assets/press/...zip" aria-label="Copy download link">
       <span data-copy-label>Copy link</span>
     </button>
 
-  After click, [data-copy-label] swaps to "Copied" for 1.6s.
+  After click, [data-copy-label] swaps to "Copied" for 1.6s and a
+  shared role="status" region announces the result to assistive tech.
 -->
 
 <script>
@@ -17,6 +18,18 @@
 
     var RESET_MS = 1600;
 
+    function getStatus() {
+      var status = document.querySelector("[data-copy-status]");
+      if (status) return status;
+      status = document.createElement("div");
+      status.className = "sr-only";
+      status.setAttribute("role", "status");
+      status.setAttribute("aria-live", "polite");
+      status.setAttribute("data-copy-status", "");
+      document.body.appendChild(status);
+      return status;
+    }
+
     document.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-copy]");
       if (!btn) return;
@@ -24,10 +37,14 @@
       var value = btn.getAttribute("data-copy");
       var label = btn.querySelector("[data-copy-label]") || btn;
       var original = label.textContent;
+      if (!btn.getAttribute("aria-label")) {
+        btn.setAttribute("aria-label", original.trim() || "Copy to clipboard");
+      }
 
       var done = function (ok) {
+        var message = ok ? "Copied to clipboard." : "Copy failed.";
         label.textContent = ok ? "Copied" : "Copy failed";
-        btn.setAttribute("aria-live", "polite");
+        getStatus().textContent = message;
         window.setTimeout(function () { label.textContent = original; }, RESET_MS);
       };
 

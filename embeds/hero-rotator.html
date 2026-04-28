@@ -117,7 +117,9 @@
       els.dots.forEach(function (dot, k) {
         dot.setAttribute("aria-current", k === i ? "true" : "false");
         var fill = dot.querySelector(".hero-dot__fill");
-        if (k < i && !fill) {
+        if (k >= i && fill) {
+          fill.remove();
+        } else if (k < i && !fill) {
           var span = document.createElement("span");
           span.className = "hero-dot__fill";
           dot.querySelector(".hero-dot__bar").appendChild(span);
