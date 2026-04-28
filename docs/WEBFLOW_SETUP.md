@@ -66,7 +66,7 @@ Site Settings → **Custom Code**.
 
 Page-specific:
 - Homepage: `embeds/hero-rotator.html` in the page-level Footer Code.
-- `/games` and `/careers`: `embeds/finsweet-filter.html` in page-level Footer Code.
+- `/games`, `/news`, and `/careers`: `embeds/finsweet-filter.html` in page-level Footer Code.
 - `/press-kit` and `/brand`: `embeds/copy-to-clipboard.html` in page-level Footer Code.
 - `/news/[slug]` template: NewsArticle + BreadcrumbList JSON-LD in page-level Head Code.
 - `/games/[slug]` template: VideoGame + BreadcrumbList JSON-LD in page-level Head Code.

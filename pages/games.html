@@ -54,16 +54,16 @@
           <fieldset style="border:0;padding:0;margin:0;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
             <legend class="t-eyebrow" style="margin-right:12px">Platform</legend>
             <label class="filter-pill">
-              <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="iOS" class="sr-only"> Mobile
+              <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="iOS,Android" class="sr-only"> Mobile
             </label>
             <label class="filter-pill">
-              <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Roblox" class="sr-only"> Roblox / Fortnite
+              <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Roblox,Fortnite,UEFN" class="sr-only"> Roblox / Fortnite
             </label>
             <label class="filter-pill">
-              <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Switch" class="sr-only"> Console / PC
+              <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Switch,PS5,Xbox,PC" class="sr-only"> Console / PC
             </label>
             <label class="filter-pill">
-              <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Luna" class="sr-only"> Cloud
+              <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Luna,Apple Arcade" class="sr-only"> Cloud
             </label>
           </fieldset>
 
@@ -97,7 +97,9 @@
               <p class="card-game__meta">Mattel163 · iOS · Android</p>
               <span class="tag tag--status-live" style="margin-top:12px;display:inline-flex">Live</span>
             </div>
-            <span class="sr-only" aria-hidden="true">Status: Live · Platform: iOS Android · Studio: Mattel163</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="status">Live</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="platform">iOS Android</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="studio">Mattel163</span>
           </a>
 
           <a href="/games/uno-wonder" class="card-game">
@@ -108,7 +110,9 @@
               <p class="card-game__meta">Mattel163 · iOS · Android</p>
               <span class="tag tag--status-live" style="margin-top:12px">Live</span>
             </div>
-            <span class="sr-only">Status: Live · Platform: iOS Android · Studio: Mattel163</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="status">Live</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="platform">iOS Android</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="studio">Mattel163</span>
           </a>
 
           <a href="/games/hot-wheels-lets-race-ultimate-speed" class="card-game">
@@ -119,7 +123,9 @@
               <p class="card-game__meta">GameMill · Bamtang · Switch · PS5 · Xbox · PC</p>
               <span class="tag tag--status-live" style="margin-top:12px">Live</span>
             </div>
-            <span class="sr-only">Status: Live · Platform: Switch PS5 Xbox PC · Studio: GameMill Bamtang</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="status">Live</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="platform">Switch PS5 Xbox PC</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="studio">GameMill Bamtang</span>
           </a>
 
           <a href="/games/skeletor-runner" class="card-game">
@@ -130,7 +136,9 @@
               <p class="card-game__meta">Mattel Games Studio · iOS · Android · May 2026</p>
               <span class="tag tag--status-coming" style="margin-top:12px">Coming</span>
             </div>
-            <span class="sr-only">Status: Coming · Platform: iOS Android · Studio: Mattel Games Studio</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="status">Coming</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="platform">iOS Android</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="studio">Mattel Games Studio</span>
           </a>
 
           <a href="/games/motu-legends-unite" class="card-game">
@@ -141,7 +149,9 @@
               <p class="card-game__meta">Bandit Island · Amazon Luna · Jun 5 2026</p>
               <span class="tag tag--status-coming" style="margin-top:12px">Coming</span>
             </div>
-            <span class="sr-only">Status: Coming · Platform: Luna · Studio: Bandit Island</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="status">Coming</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="platform">Amazon Luna</span>
+            <span class="sr-only" aria-hidden="true" fs-cmsfilter-field="studio">Bandit Island Amazon Games</span>
           </a>
 
           <!-- …additional cards from CMS… -->

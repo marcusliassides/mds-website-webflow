@@ -83,7 +83,9 @@
             <p class="t-card-md" style="margin-top:8px">{{Status}}</p>
           </div>
           <div>
-            <p class="t-eyebrow">{{Status === "Live" ? "Released" : "Window"}}</p>
+            <!-- In Webflow, duplicate this eyebrow and use conditional visibility:
+                 show "Released" for Status=Live, show "Window" otherwise. -->
+            <p class="t-eyebrow">Released / Window</p>
             <p class="t-card-md" style="margin-top:8px">{{Window}}</p>
           </div>
         </div>
