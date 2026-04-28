@@ -17,20 +17,22 @@ Field types for each collection, ready to recreate in Webflow CMS. Match the col
 | Color    | Color              | Hex literal — used as accent in card art |
 | Summary  | Rich Text          | One-paragraph blurb |
 | Featured | Switch             | Surfaces on homepage rotator |
+| PlayUrl  | Link               | Optional; bind the "Play now" CTA and hide the CTA when empty |
 
 **Page**: `/games/[slug]` → `pages/game-detail.html`.
 
 ## News
 
-| Column   | Webflow field type |
-|----------|--------------------|
-| Title    | Plain Text |
-| Slug     | Slug |
-| Tag      | Option (Announcement, Partnership, Launch, Strategy, Corporate) |
-| Date     | Date |
-| Byline   | Plain Text |
-| Summary  | Rich Text (1 paragraph) |
-| Body     | Rich Text |
+| Column      | Webflow field type |
+|-------------|--------------------|
+| Title       | Plain Text |
+| Slug        | Slug |
+| Tag         | Option (Announcement, Partnership, Launch, Strategy, Corporate) |
+| Date        | Date |
+| Byline      | Plain Text |
+| RelatedGame | Reference to Games (optional) |
+| Summary     | Rich Text (1 paragraph) |
+| Body        | Rich Text |
 
 **Page**: `/news/[slug]` → `pages/news-detail.html`.
 
@@ -72,6 +74,11 @@ Field types for each collection, ready to recreate in Webflow CMS. Match the col
 | ApplyUrl   | Link |
 
 **Page**: rendered inline on `/careers` with Finsweet filter on Team / Department / Location.
+
+For Finsweet filtering, render normalized hidden field values in collection items:
+`status`, `platform`, `studio`, `tag`, `team`, `department`, `location`, and optional `game`.
+Use comma-separated filter input values for groups such as `iOS,Android`; item text may use
+spaces or the CMS display string as long as every token is present.
 
 ## Press Kit Assets
 

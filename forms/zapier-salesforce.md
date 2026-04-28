@@ -6,8 +6,15 @@ The contact form on `/contact` is wired to Salesforce via Zapier. The press inqu
 
 1. **Form name** in Designer: `MDS Contact` (data attribute: `data-name="MDS Contact"`).
 2. **Required fields**: `name`, `email`, `topic`, `message`.
-3. **Honeypot**: a hidden `name="website"` field. Zapier filters out submissions where this is non-empty.
+3. **Honeypot**: a hidden `name="website"` field. Keep it out of the focus order and accessibility tree; Zapier filters out submissions where this is non-empty.
 4. **Success / fail states**: keep the default Webflow success message; customise copy in Designer to match brand voice.
+
+## Environment, privacy, and cutover
+
+- Build and test the Zap against a Salesforce sandbox first. Switch to production only after the final launch checklist pass.
+- Confirm Salesforce ownership (`MDS Inbound`), Slack notifications, and optional email senders with the Mattel teams that own those systems.
+- Form copy must link to Mattel's privacy policy and match the fields sent to Salesforce (`name`, `email`, `company`, `topic`, `message`).
+- If visitors from regulated regions are in scope, confirm retention and lawful-basis language with Legal before launch.
 
 ## Zapier side
 
@@ -41,6 +48,7 @@ The contact form on `/contact` is wired to Salesforce via Zapier. The press inqu
 **Step 4 — Confirmation email (optional)**
 - From: `press@digitalstudios.mattel.com` (or `partnerships@…`).
 - Reply-to: same.
+- Verify the sender domain in the mail provider before enabling this step.
 - Body: short acknowledgement, two-business-day SLA.
 
 ## Press inquiry CTA

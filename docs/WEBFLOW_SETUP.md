@@ -5,7 +5,7 @@ Follow this end-to-end the first time. After that, lean on `LAUNCH_CHECKLIST.md`
 ## 0. Prereqs
 
 - Webflow workspace with at least the **CMS** plan (CMS plan minimum for the Games + News collections; **Business** plan recommended for white-label and 3-stage staging).
-- GitHub access to `marcusliassides/mds-website-webflow`.
+- GitHub access to this Webflow source repository.
 - Salesforce sandbox creds for the Zapier wiring (test before pointing at prod).
 
 ## 1. Create the site
@@ -39,7 +39,7 @@ Site Settings → **Fonts** → Custom Fonts.
 
 ## 4. CMS collections
 
-For each of the eight CSVs in `cms-collections/`:
+For each of the six CSVs in `cms-collections/`:
 
 1. CMS → **+ New Collection** with the name and field set described in `cms-collections/README.md`.
 2. **Bulk import** the CSV. Map each column to its Webflow field type.
@@ -62,7 +62,7 @@ Keep the **Nav** and **Footer** as Webflow Symbols so a single edit propagates.
 Site Settings → **Custom Code**.
 
 - **Head Code**: paste `embeds/head-global.html` and the Organization + WebSite JSON-LD blocks from `embeds/json-ld.html`.
-- **Footer Code**: paste `embeds/body-global.html`.
+- **Footer Code**: paste `embeds/body-global.html`, then add the cookie banner markup from the bottom of that file to the global footer Symbol.
 
 Page-specific:
 - Homepage: `embeds/hero-rotator.html` in the page-level Footer Code.
@@ -81,10 +81,13 @@ The most load-bearing one is **Section / Fade-up on scroll** — apply once, att
 
 Follow `forms/zapier-salesforce.md` for the Zapier side. Webflow side requires no extra wiring beyond setting the form name and required fields.
 
+Run the Zap against a Salesforce sandbox first. Only switch to the production queue after privacy copy, lead ownership, Slack notifications, and confirmation email senders have been approved.
+
 ## 9. SEO
 
 - Apply per-page meta from `seo/meta-tags.json` via Page Settings → SEO Settings.
 - Add 301s from `seo/redirects.json` to Site Settings → Hosting → 301 Redirects.
+- Expand any legacy URL wildcard notes in `seo/redirects.json` into concrete one-off rows before launch.
 - Webflow generates `/sitemap.xml` automatically; verify it includes both static pages and CMS items at `digitalstudios.mattel.com/sitemap.xml`.
 
 ## 10. Pre-launch

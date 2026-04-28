@@ -78,12 +78,13 @@
       <div class="container">
         <h2 class="t-block">More from MDS.</h2>
         <div class="grid-3" style="margin-top:32px">
-          <a href="/news/{{related-slug}}" class="card">
-            <span class="t-eyebrow">{{related-tag}}</span>
-            <h3 class="t-card-md" style="margin-top:12px">{{related-title}}</h3>
-            <p class="t-mono muted" style="margin-top:12px">{{related-date}}</p>
+          <!-- Webflow nested Collection List: News, sort Date desc, exclude current item, limit 3.
+               Bind these fields from each related News item. -->
+          <a href="/news/{{Slug}}" class="card">
+            <span class="t-eyebrow">{{Tag}}</span>
+            <h3 class="t-card-md" style="margin-top:12px">{{Title}}</h3>
+            <p class="t-mono muted" style="margin-top:12px">{{Date}}</p>
           </a>
-          <!-- repeat 3x -->
         </div>
       </div>
     </section>

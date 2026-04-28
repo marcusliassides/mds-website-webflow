@@ -54,8 +54,10 @@
 
   <div fs-cmsfilter-element="list" class="grid-3">
     <!-- Webflow CMS Collection List with .card-game items.
-         Each card needs the field values rendered into hidden text or
-         data attributes that match fs-cmsfilter-field above. -->
+         Each card needs machine-readable values rendered with matching
+         fs-cmsfilter-field attributes. Use comma-separated tokens for
+         multi-value Platform/Studio fields so fs-cmsfilter-type="any"
+         can match each item independently. -->
   </div>
 
   <div fs-cmsfilter-element="empty" hidden>

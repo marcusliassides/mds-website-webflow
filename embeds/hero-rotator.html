@@ -8,8 +8,7 @@
     <section class="section-hero" data-hero-rotator
              aria-roledescription="carousel"
              aria-label="Featured MDS stories"
-             aria-keyshortcuts="ArrowLeft ArrowRight Space"
-             tabindex="-1">
+             aria-keyshortcuts="ArrowLeft ArrowRight">
 
       <div class="hero-grid">
         <div class="hero-copy">
@@ -27,10 +26,14 @@
             <a href="#" class="btn btn--ghost" data-hero-story>Read the story</a>
           </div>
 
-          <div class="hero-dots" role="tablist">
-            <button class="hero-dot" data-hero-dot="0" aria-label="Slide 1 of 3"><span class="hero-dot__bar"></span></button>
-            <button class="hero-dot" data-hero-dot="1" aria-label="Slide 2 of 3"><span class="hero-dot__bar"></span></button>
-            <button class="hero-dot" data-hero-dot="2" aria-label="Slide 3 of 3"><span class="hero-dot__bar"></span></button>
+          <div class="hero-controls">
+            <div class="hero-dots" role="group" aria-label="Hero slides">
+              <button class="hero-dot" data-hero-dot="0" aria-label="Slide 1 of 3"><span class="hero-dot__bar"></span></button>
+              <button class="hero-dot" data-hero-dot="1" aria-label="Slide 2 of 3"><span class="hero-dot__bar"></span></button>
+              <button class="hero-dot" data-hero-dot="2" aria-label="Slide 3 of 3"><span class="hero-dot__bar"></span></button>
+            </div>
+
+            <button type="button" class="btn btn--ghost hero-pause" data-hero-pause aria-pressed="false">Pause carousel</button>
           </div>
         </div>
 
@@ -87,6 +90,7 @@
       blurb: root.querySelector("[data-hero-blurb]"),
       story: root.querySelector("[data-hero-story]"),
       dots: Array.prototype.slice.call(root.querySelectorAll("[data-hero-dot]")),
+      pause: root.querySelector("[data-hero-pause]"),
       status: root.querySelector("[data-hero-status]")
     };
 
@@ -163,25 +167,41 @@
       start();
     }
 
+    function syncPauseControl() {
+      if (!els.pause) return;
+      els.pause.setAttribute("aria-pressed", paused ? "true" : "false");
+      els.pause.textContent = paused ? "Play carousel" : "Pause carousel";
+    }
+
+    function togglePause() {
+      paused = !paused;
+      paused ? stop() : start();
+      syncPauseControl();
+    }
+
     // Init
     render();
+    syncPauseControl();
     start();
 
     // Hover pause
     root.addEventListener("mouseenter", function () { hovered = true; stop(); });
     root.addEventListener("mouseleave", function () { hovered = false; start(); });
     root.addEventListener("focusin", function () { hovered = true; stop(); });
-    root.addEventListener("focusout", function () { hovered = false; start(); });
+    root.addEventListener("focusout", function (e) {
+      if (root.contains(e.relatedTarget)) return;
+      hovered = false;
+      start();
+    });
 
     // Keyboard
     root.addEventListener("keydown", function (e) {
       if (e.key === "ArrowRight") { e.preventDefault(); next(); restart(); }
       else if (e.key === "ArrowLeft") { e.preventDefault(); prev(); restart(); }
       else if (e.key === " " || e.key === "Spacebar") {
-        if (e.target === root) {
+        if (e.target === root || e.target === els.pause) {
           e.preventDefault();
-          paused = !paused;
-          paused ? stop() : start();
+          togglePause();
         }
       }
     });
@@ -190,13 +210,20 @@
     els.dots.forEach(function (dot, k) {
       dot.addEventListener("click", function () { go(k); });
     });
+    if (els.pause) {
+      els.pause.addEventListener("click", togglePause);
+    }
 
     // Reduced-motion live updates
     if (window.matchMedia) {
       var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
       var onChange = function (e) {
         prefersReducedMotion = e.matches;
-        prefersReducedMotion ? stop() : start();
+        if (prefersReducedMotion) {
+          stop();
+        } else {
+          start();
+        }
       };
       if (mq.addEventListener) mq.addEventListener("change", onChange);
       else if (mq.addListener) mq.addListener(onChange);

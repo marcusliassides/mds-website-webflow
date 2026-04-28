@@ -7,6 +7,13 @@
   <title>{{Name}} — Mattel Digital Studios</title>
   <meta name="description" content="{{Summary}}">
   <link rel="canonical" href="https://digitalstudios.mattel.com/games/{{Slug}}">
+  <!-- Open Graph — bind from CMS -->
+  <meta property="og:title" content="{{Name}} — Mattel Digital Studios">
+  <meta property="og:description" content="{{Summary}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://digitalstudios.mattel.com/games/{{Slug}}">
+  <meta property="og:image" content="https://digitalstudios.mattel.com/assets/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="../styles/variables.css">
   <link rel="stylesheet" href="../styles/typography.css">
   <link rel="stylesheet" href="../styles/components.css">
@@ -41,7 +48,10 @@
             <h1 class="t-page" style="margin-top:8px">{{Name}}</h1>
 
             <div class="cluster" style="margin-top:20px">
+              <!-- Duplicate status tags in Webflow and use conditional visibility:
+                   show Live when Status=Live, Coming when Status=Coming. -->
               <span class="tag tag--status-live">{{Status}}</span>
+              <span class="tag tag--status-coming">{{Status}}</span>
               <span class="t-mono muted">{{Studio}}</span>
               <span class="t-mono muted">{{Platform}}</span>
               <span class="t-mono muted">{{Window}}</span>
@@ -52,9 +62,9 @@
             </p>
 
             <div class="hero-cta-row" style="margin-top:36px">
-              <!-- Webflow conditional visibility: show "Play now" only if game.Status === "Live" -->
-              <a href="#" class="btn btn--primary">Play now</a>
-              <a href="/news?game={{Slug}}" class="btn btn--ghost">Latest news →</a>
+              <!-- Webflow conditional visibility: show only when Status=Live and PlayUrl is set. -->
+              <a href="{{PlayUrl}}" class="btn btn--primary">Play now</a>
+              <a href="/news" class="btn btn--ghost">Latest news →</a>
             </div>
           </div>
 
@@ -94,19 +104,19 @@
 
     <!-- =====================================================================
          RELATED — News tagged to this game.
-         CMS: News Collection, filtered where (Title or Summary contains {{Name}}).
+         CMS: nested News Collection List, filtered by RelatedGames reference.
          ===================================================================== -->
     <section class="section section--md">
       <div class="container">
         <h2 class="t-section">Latest news.</h2>
 
         <div style="margin-top:32px">
-          <!-- Per-CMS-item template -->
-          <a href="/news/{{news-slug}}" class="card-news">
-            <span class="card-news__date">{{news-date}} · {{news-tag}}</span>
+          <!-- Per-News-CMS-item template inside the nested Collection List. -->
+          <a href="/news/{{Slug}}" class="card-news">
+            <span class="card-news__date">{{Date}} · {{Tag}}</span>
             <div>
-              <h3 class="card-news__title">{{news-title}}</h3>
-              <p class="card-news__sub">{{news-summary}}</p>
+              <h3 class="card-news__title">{{Title}}</h3>
+              <p class="card-news__sub">{{Summary}}</p>
             </div>
           </a>
         </div>

@@ -46,22 +46,7 @@
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-  /* Skip link */
-  .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 8px;
-    padding: 8px 12px;
-    background: #EA0029;
-    color: #fff;
-    z-index: 9999;
-    text-decoration: none;
-    border-radius: 6px;
-    font-family: "Matty Mattel Sans", sans-serif;
-    font-weight: 600;
-    transition: top 180ms ease;
-  }
-  .skip-link:focus { top: 8px; }
+  /* Skip link styles live in styles/utilities.css for stylesheet-only parity. */
 </style>
 
 <!-- Dark-mode FOUC guard. Sets data-theme on <html> before paint

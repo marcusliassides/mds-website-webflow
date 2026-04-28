@@ -87,8 +87,8 @@
               <textarea class="form-textarea" id="contact-message" name="message" rows="5" required maxlength="2000"></textarea>
             </div>
 
-            <!-- Honeypot (hidden from users; bots fill it; submissions where this is non-empty are dropped server-side) -->
-            <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+            <!-- Honeypot: visually hidden with the native hidden attribute so it is not exposed to assistive tech. -->
+            <input type="text" name="website" tabindex="-1" autocomplete="off" hidden>
 
             <button type="submit" class="btn btn--primary" style="width:100%;margin-top:8px">Send</button>
 

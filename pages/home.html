@@ -6,6 +6,12 @@
   <title>Mattel Digital Studios — Games and digital experiences from Mattel</title>
   <meta name="description" content="Games and digital experiences from Mattel, Inc. 1B+ cumulative downloads across the Mattel163 + Mattel Games Studio mobile portfolio.">
   <link rel="canonical" href="https://digitalstudios.mattel.com/">
+  <meta property="og:title" content="Mattel Digital Studios — Games and digital experiences from Mattel">
+  <meta property="og:description" content="Games and digital experiences from Mattel, Inc. across mobile, console, cloud, and creator platforms.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://digitalstudios.mattel.com/">
+  <meta property="og:image" content="https://digitalstudios.mattel.com/assets/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="../styles/variables.css">
   <link rel="stylesheet" href="../styles/typography.css">
   <link rel="stylesheet" href="../styles/components.css">
@@ -48,8 +54,7 @@
     <section class="section-hero" data-hero-rotator
              aria-roledescription="carousel"
              aria-label="Featured MDS stories"
-             aria-keyshortcuts="ArrowLeft ArrowRight Space"
-             tabindex="-1">
+             aria-keyshortcuts="ArrowLeft ArrowRight">
       <div class="hero-glow" aria-hidden="true">
         <div class="hero-glow__a" style="top:-20%;left:-10%;width:70%;height:120%;background:radial-gradient(closest-side,#7A34B755,transparent 70%);"></div>
         <div class="hero-glow__b" style="top:10%;right:-15%;width:60%;height:90%;background:radial-gradient(closest-side,#EA002940,transparent 70%);"></div>
@@ -73,10 +78,13 @@
             <a href="/news/motu-legends-unite-launches-june-5-on-amazon-luna" class="btn btn--ghost" data-hero-story>Read the story</a>
           </div>
 
-          <div class="hero-dots" role="tablist" aria-label="Hero slides">
-            <button class="hero-dot" data-hero-dot="0" aria-current="true" aria-label="Slide 1 of 3"><span class="hero-dot__bar"></span></button>
-            <button class="hero-dot" data-hero-dot="1" aria-label="Slide 2 of 3"><span class="hero-dot__bar"></span></button>
-            <button class="hero-dot" data-hero-dot="2" aria-label="Slide 3 of 3"><span class="hero-dot__bar"></span></button>
+          <div class="hero-controls">
+            <div class="hero-dots" role="group" aria-label="Hero slides">
+              <button class="hero-dot" data-hero-dot="0" aria-current="true" aria-label="Slide 1 of 3"><span class="hero-dot__bar"></span></button>
+              <button class="hero-dot" data-hero-dot="1" aria-label="Slide 2 of 3"><span class="hero-dot__bar"></span></button>
+              <button class="hero-dot" data-hero-dot="2" aria-label="Slide 3 of 3"><span class="hero-dot__bar"></span></button>
+            </div>
+            <button type="button" class="btn btn--ghost hero-pause" data-hero-pause aria-pressed="false">Pause carousel</button>
           </div>
         </div>
 

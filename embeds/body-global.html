@@ -4,7 +4,7 @@
   Includes:
     - Dark mode toggle wiring (any element with [data-theme-toggle])
     - Cookie consent banner (lightweight, no third-party)
-    - GA4 / pixel hooks (placeholder)
+    - Consent events for GA4 / pixel hooks
 -->
 
 <script>
@@ -41,7 +41,9 @@
 
     /* ===== Cookie consent =====
        Show banner once. Marks acceptance in localStorage.
-       Banner element: #mds-cookie-banner with [data-cookie-accept] inside. */
+       Banner element: #mds-cookie-banner with [data-cookie-accept] and
+       [data-cookie-decline] controls inside. Analytics snippets should load
+       only after the mds:consent-change event reports accepted=true. */
     var CONSENT_KEY = "mds-cookie-consent";
     var banner = document.getElementById("mds-cookie-banner");
     if (banner) {
@@ -56,9 +58,10 @@
         if (!accept && !decline) return;
         try { localStorage.setItem(CONSENT_KEY, accept ? "accepted" : "declined"); } catch (e) {}
         banner.setAttribute("hidden", "");
-        if (accept) {
-          window.dispatchEvent(new CustomEvent("mds:consent-accepted"));
-        }
+        window.dispatchEvent(new CustomEvent("mds:consent-change", {
+          detail: { accepted: Boolean(accept) }
+        }));
+        if (accept) window.dispatchEvent(new CustomEvent("mds:consent-accepted"));
       });
     }
 
@@ -71,8 +74,9 @@
   })();
 </script>
 
-<!-- Cookie banner template — copy this into the footer of your Designer
-     layout, or paste a Webflow custom Embed in the same spot. -->
+<!-- Cookie banner template — required when analytics are enabled. Copy this
+     into the footer of your Designer layout, or paste a Webflow custom Embed
+     in the same spot. -->
 <!--
 <div id="mds-cookie-banner" hidden role="dialog" aria-label="Cookie preferences" class="cookie-banner">
   <p class="t-body-sm">We use a minimal set of cookies for analytics. See our <a href="/accessibility#privacy">Privacy notice</a>.</p>
