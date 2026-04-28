@@ -21,10 +21,6 @@
     { "from": "/jobs", "to": "/careers" },
     { "from": "/team", "to": "/about" },
     { "from": "/leadership", "to": "/about" },
-    { "from": "/partners", "to": "/studios" },
-
-    {
-      "$comment": "Catch-all from the legacy slugless news codes. Webflow does not natively support wildcard 301s — implement these as one-off rows once legacy URLs are catalogued in analytics."
-    }
+    { "from": "/partners", "to": "/studios" }
   ]
 }

@@ -29,7 +29,7 @@ mds-website-webflow/
 5. **Pages** — for each file in `pages/`, recreate the structure in Webflow using the documented class system (`docs/CLASS_SYSTEM.md`). The HTML files are reference, not export.
 6. **Embeds** — paste the snippets from `embeds/` into Site Settings → Custom Code (head/body) or onto specific pages (hero rotator, Finsweet filter).
 7. **Interactions** — build the IX2 triggers per `interactions/interactions.json`.
-8. **Forms** — wire the contact and press inquiry forms to Zapier per `forms/zapier-salesforce.md`.
+8. **Forms** — wire the contact form to Zapier per `forms/zapier-salesforce.md`; press inquiries use the documented `mailto:` flow.
 9. **SEO** — apply per-page meta from `seo/meta-tags.json` and add the redirects from `seo/redirects.json` to Site Settings → Hosting → 301 Redirects.
 10. **Pre-launch** — run through `docs/LAUNCH_CHECKLIST.md`.
 
@@ -38,7 +38,7 @@ mds-website-webflow/
 - BEM-like flat class names: `section-hero`, `card-game`, `card-game__title`.
 - All color, type, and spacing decisions live in Webflow Variables. No hex literals on individual elements; CMS Color field values are the documented exception.
 - CMS-bound text is wrapped in semantic tags (`<h1>`, `<p>`) with class names — never raw `<div>` text.
-- Every page has a JSON-LD block. Templates in `embeds/json-ld.html`.
+- Site, article, game, and breadcrumb JSON-LD templates live in `embeds/json-ld.html`; add page-specific WebPage/AboutPage schema only where SEO requires it.
 - Reduced-motion and focus-ring CSS is global; see `embeds/head-global.html`.
 
 ## Source of truth

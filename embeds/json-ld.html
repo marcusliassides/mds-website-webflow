@@ -5,10 +5,8 @@
 
   Webflow Designer note: text wrapped in {{...}} is meant to be replaced
   by Webflow CMS bindings — drop a "+ Add Field" inside the embed and
-  pick the matching CMS field. JSON-encode every CMS string binding in
-  this file before publish (quotes, backslashes and line breaks in titles
-  or summaries otherwise invalidate the whole JSON-LD block). Date fields
-  should render as ISO 8601 values.
+  pick the matching CMS field. Bind only JSON-safe helper fields in this
+  file: escaped string fields, DateIso, PlatformJsonArray, and StudioJson.
 -->
 
 <!-- =====================================================================
@@ -29,6 +27,8 @@
   },
   "sameAs": [
     "https://www.linkedin.com/company/mattel/",
+    "https://www.instagram.com/mattel/",
+    "https://www.youtube.com/user/Mattel",
     "https://corporate.mattel.com"
   ],
   "address": {
@@ -58,16 +58,17 @@
 
 <!-- =====================================================================
      3. Article (NewsArticle) — paste on /news/[slug] page custom code.
-     Bind {{Title}}, {{Date}}, {{Summary}}, {{Slug}} from the News collection.
+     Bind JSON-safe fields from the News collection:
+     {{TitleJson}}, {{DateIso}}, {{SummaryJson}}, {{Slug}}.
      ===================================================================== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "NewsArticle",
-  "headline": "{{Title}}",
-  "datePublished": "{{Date}}",
-  "dateModified": "{{Date}}",
-  "description": "{{Summary}}",
+  "headline": {{TitleJson}},
+  "datePublished": "{{DateIso}}",
+  "dateModified": "{{DateIso}}",
+  "description": {{SummaryJson}},
   "url": "https://digitalstudios.mattel.com/news/{{Slug}}",
   "image": "https://digitalstudios.mattel.com/assets/og-card.png",
   "author": {
@@ -91,17 +92,16 @@
 
 <!-- =====================================================================
      4. VideoGame — paste on /games/[slug] page custom code.
-     Bind {{Name}}, {{Slug}}, {{Summary}}, {{PlatformJsonArray}}, {{Studio}}.
-     PlatformJsonArray is a JSON-safe array string generated from Platform,
-     for example ["iOS","Android"].
+     Bind JSON-safe fields from the Games collection:
+     {{NameJson}}, {{Slug}}, {{SummaryJson}}, {{PlatformJsonArray}}, {{StudioJson}}.
      ===================================================================== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "VideoGame",
-  "name": "{{Name}}",
+  "name": {{NameJson}},
   "url": "https://digitalstudios.mattel.com/games/{{Slug}}",
-  "description": "{{Summary}}",
+  "description": {{SummaryJson}},
   "gamePlatform": {{PlatformJsonArray}},
   "publisher": {
     "@type": "Organization",
@@ -109,14 +109,13 @@
   },
   "author": {
     "@type": "Organization",
-    "name": "{{Studio}}"
+    "name": {{StudioJson}}
   }
 }
 </script>
 
 <!-- =====================================================================
-     5. BreadcrumbList — paste on detail pages.
-     Replace per-page; this is the /news/[slug] example.
+     5. BreadcrumbList — paste on /news/[slug].
      ===================================================================== -->
 <script type="application/ld+json">
 {
@@ -125,7 +124,22 @@
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://digitalstudios.mattel.com/" },
     { "@type": "ListItem", "position": 2, "name": "News", "item": "https://digitalstudios.mattel.com/news" },
-    { "@type": "ListItem", "position": 3, "name": "{{Title}}", "item": "https://digitalstudios.mattel.com/news/{{Slug}}" }
+    { "@type": "ListItem", "position": 3, "name": {{TitleJson}}, "item": "https://digitalstudios.mattel.com/news/{{Slug}}" }
+  ]
+}
+</script>
+
+<!-- =====================================================================
+     6. BreadcrumbList — paste on /games/[slug].
+     ===================================================================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://digitalstudios.mattel.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Games", "item": "https://digitalstudios.mattel.com/games" },
+    { "@type": "ListItem", "position": 3, "name": {{NameJson}}, "item": "https://digitalstudios.mattel.com/games/{{Slug}}" }
   ]
 }
 </script>

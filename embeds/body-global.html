@@ -14,8 +14,19 @@
     /* ===== Dark mode toggle =====
        Mark any control with data-theme-toggle. Optional [data-theme-icon-light]
        / [data-theme-icon-dark] children get show/hidden automatically. */
+    function syncThemeColor(theme) {
+      var meta = document.querySelector('meta[name="theme-color"]:not([media])');
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.setAttribute("name", "theme-color");
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute("content", theme === "dark" ? "#0B0B0C" : "#F7F5F4");
+    }
+
     function applyTheme(theme) {
       document.documentElement.setAttribute("data-theme", theme);
+      syncThemeColor(theme);
       try { localStorage.setItem("mds-theme", theme); } catch (e) {}
       document.querySelectorAll("[data-theme-toggle]").forEach(function (btn) {
         btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
@@ -41,13 +52,33 @@
 
     /* ===== Mobile nav =====
        Use [data-nav-toggle] with aria-controls pointing at [data-nav-menu]. */
+    function setNavOpen(toggle, open) {
+      var nav = toggle.closest(".nav");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (nav) nav.classList.toggle("is-open", open);
+    }
+
     document.addEventListener("click", function (e) {
       var toggle = e.target.closest("[data-nav-toggle]");
       if (!toggle) return;
-      var nav = toggle.closest(".nav");
-      var expanded = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
-      if (nav) nav.classList.toggle("is-open", !expanded);
+      setNavOpen(toggle, toggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      document.querySelectorAll("[data-nav-toggle][aria-expanded='true']").forEach(function (toggle) {
+        setNavOpen(toggle, false);
+        toggle.focus();
+      });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      document.querySelectorAll("[data-nav-toggle][aria-expanded='true']").forEach(function (toggle) {
+        var nav = toggle.closest(".nav");
+        toggle.setAttribute("aria-expanded", "false");
+        if (nav) nav.classList.remove("is-open");
+        toggle.focus();
+      });
     });
 
     /* ===== Cookie consent =====
@@ -59,21 +90,32 @@
     var CONSENT_KEY = "mds-cookie-consent";
     var banner = document.getElementById("mds-cookie-banner");
     if (banner) {
+      var lastFocusedBeforeBanner = null;
       var consent;
       try { consent = localStorage.getItem(CONSENT_KEY); } catch (e) {}
       if (!consent) {
+        lastFocusedBeforeBanner = document.activeElement;
         banner.removeAttribute("hidden");
+        var firstChoice = banner.querySelector("[data-cookie-accept], [data-cookie-decline]");
+        if (firstChoice) firstChoice.focus();
+      }
+      function closeBanner(accepted) {
+        try { localStorage.setItem(CONSENT_KEY, accepted ? "accepted" : "declined"); } catch (e) {}
+        banner.setAttribute("hidden", "");
+        var detail = { accepted: accepted };
+        window.dispatchEvent(new CustomEvent("mds:consent-change", { detail: detail }));
+        window.dispatchEvent(new CustomEvent("mds:consent-updated", { detail: detail }));
+        if (accepted) window.dispatchEvent(new CustomEvent("mds:consent-accepted"));
+        if (lastFocusedBeforeBanner && lastFocusedBeforeBanner.focus) lastFocusedBeforeBanner.focus();
       }
       banner.addEventListener("click", function (e) {
         var accept = e.target.closest("[data-cookie-accept]");
         var decline = e.target.closest("[data-cookie-decline]");
         if (!accept && !decline) return;
-        try { localStorage.setItem(CONSENT_KEY, accept ? "accepted" : "declined"); } catch (e) {}
-        banner.setAttribute("hidden", "");
-        var detail = { accepted: Boolean(accept) };
-        window.dispatchEvent(new CustomEvent("mds:consent-change", { detail: detail }));
-        window.dispatchEvent(new CustomEvent("mds:consent-updated", { detail: detail }));
-        if (accept) window.dispatchEvent(new CustomEvent("mds:consent-accepted"));
+        closeBanner(Boolean(accept));
+      });
+      banner.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeBanner(false);
       });
     }
 
@@ -89,7 +131,7 @@
 <!-- Cookie banner template — required when analytics are enabled. Copy this
      into the footer of your Designer layout, or paste a Webflow custom Embed
      in the same spot. -->
-<div id="mds-cookie-banner" hidden role="dialog" aria-label="Cookie preferences" class="cookie-banner">
+<div id="mds-cookie-banner" hidden role="dialog" aria-modal="true" aria-label="Cookie preferences" class="cookie-banner">
   <p class="t-body-sm">We use a minimal set of cookies for analytics. See our <a href="/accessibility#privacy">Privacy notice</a>.</p>
   <div class="cluster">
     <button class="btn btn--secondary" data-cookie-decline>Decline</button>

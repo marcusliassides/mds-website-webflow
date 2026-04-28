@@ -1,19 +1,19 @@
-Title,Slug,Team,Location,Type,Department,ApplyUrl
-"Associate Manager, Performance Marketing",associate-manager-performance-marketing,Digital Gaming,"El Segundo, CA",Full-time,UA & Marketing,https://jobs.mattel.com/
-"Director, Brand Creative",director-brand-creative,Games,"El Segundo, CA",Full-time,Art & Creative,https://jobs.mattel.com/
-"Sr. Director, Kids & Preschool Animation",sr-director-kids-preschool-animation,TV & Digital,"El Segundo, CA",Full-time,Art & Creative,https://jobs.mattel.com/
-"Sr. Analyst, Digital Operations",sr-analyst-digital-operations,Digital,"El Segundo, CA",Full-time,Live Ops & Data,https://jobs.mattel.com/
-"Product Owner",product-owner,Digital & Ecommerce,"El Segundo, CA",Full-time,Publishing,https://jobs.mattel.com/
-"Social Media Manager",social-media-manager,Mattel163,"Remote · United States",Full-time,UA & Marketing,https://jobs.mattel.com/
-"Senior Game Designer",senior-game-designer,Mattel Games Studio,"El Segundo, CA",Full-time,Game Design,https://jobs.mattel.com/
-"Unity Software Engineer",unity-software-engineer,Mattel Games Studio,"El Segundo, CA",Full-time,Engineering,https://jobs.mattel.com/
-"Senior Producer — Mobile",senior-producer-mobile,Mattel Games Studio,"El Segundo, CA",Full-time,Game Design,https://jobs.mattel.com/
-"Mobile UA Manager",mobile-ua-manager,Mattel163,"Los Angeles, CA",Full-time,UA & Marketing,https://jobs.mattel.com/
-"Live Ops Producer",live-ops-producer,Mattel163,"Hangzhou, China",Full-time,Live Ops & Data,https://jobs.mattel.com/
-"Game Economy Designer",game-economy-designer,Mattel163,"Hangzhou, China",Full-time,Game Design,https://jobs.mattel.com/
-"Backend Engineer",backend-engineer,Mattel163,"Hangzhou, China",Full-time,Engineering,https://jobs.mattel.com/
-"Data Analyst — Games",data-analyst-games,MDS,"El Segundo, CA",Full-time,Live Ops & Data,https://jobs.mattel.com/
-"Product Marketing Manager — UNO",product-marketing-manager-uno,Mattel Games,"El Segundo, CA",Full-time,UA & Marketing,https://jobs.mattel.com/
-"Senior Manager, Licensing — Games",senior-manager-licensing-games,MDS,"El Segundo, CA",Full-time,Publishing,https://jobs.mattel.com/
-"QA Lead",qa-lead,Mattel Games Studio,"El Segundo, CA",Full-time,Engineering,https://jobs.mattel.com/
-"Technical Artist",technical-artist,Mattel Games Studio,"El Segundo, CA",Full-time,Art & Creative,https://jobs.mattel.com/
+Title,Slug,Team,TeamFilter,Location,LocationFilter,Type,Department,DepartmentFilter,ApplyUrl
+"Associate Manager, Performance Marketing",associate-manager-performance-marketing,Digital Gaming,"MDS, Digital, Digital Gaming, Digital & Ecommerce","El Segundo, CA",El Segundo,Full-time,UA & Marketing,UA & Marketing,https://jobs.mattel.com/
+"Director, Brand Creative",director-brand-creative,Games,"Mattel Games Studio, Mattel Games, Games","El Segundo, CA",El Segundo,Full-time,Art & Creative,"Art & Creative, Publishing, Digital, Digital Gaming, Digital & Ecommerce, Mattel Games, TV & Digital",https://jobs.mattel.com/
+"Sr. Director, Kids & Preschool Animation",sr-director-kids-preschool-animation,TV & Digital,TV & Digital,"El Segundo, CA",El Segundo,Full-time,Art & Creative,"Art & Creative, Publishing, Digital, Digital Gaming, Digital & Ecommerce, Mattel Games, TV & Digital",https://jobs.mattel.com/
+"Sr. Analyst, Digital Operations",sr-analyst-digital-operations,Digital,"MDS, Digital, Digital Gaming, Digital & Ecommerce","El Segundo, CA",El Segundo,Full-time,Live Ops & Data,Live Ops & Data,https://jobs.mattel.com/
+Product Owner,product-owner,Digital & Ecommerce,"MDS, Digital, Digital Gaming, Digital & Ecommerce","El Segundo, CA",El Segundo,Full-time,Publishing,"Art & Creative, Publishing, Digital, Digital Gaming, Digital & Ecommerce, Mattel Games, TV & Digital",https://jobs.mattel.com/
+Social Media Manager,social-media-manager,Mattel163,Mattel163,Remote · United States,Remote,Full-time,UA & Marketing,UA & Marketing,https://jobs.mattel.com/
+Senior Game Designer,senior-game-designer,Mattel Games Studio,"Mattel Games Studio, Mattel Games, Games","El Segundo, CA",El Segundo,Full-time,Game Design,Game Design,https://jobs.mattel.com/
+Unity Software Engineer,unity-software-engineer,Mattel Games Studio,"Mattel Games Studio, Mattel Games, Games","El Segundo, CA",El Segundo,Full-time,Engineering,Engineering,https://jobs.mattel.com/
+Senior Producer — Mobile,senior-producer-mobile,Mattel Games Studio,"Mattel Games Studio, Mattel Games, Games","El Segundo, CA",El Segundo,Full-time,Game Design,Game Design,https://jobs.mattel.com/
+Mobile UA Manager,mobile-ua-manager,Mattel163,Mattel163,"Los Angeles, CA",Los Angeles,Full-time,UA & Marketing,UA & Marketing,https://jobs.mattel.com/
+Live Ops Producer,live-ops-producer,Mattel163,Mattel163,"Hangzhou, China",Hangzhou,Full-time,Live Ops & Data,Live Ops & Data,https://jobs.mattel.com/
+Game Economy Designer,game-economy-designer,Mattel163,Mattel163,"Hangzhou, China",Hangzhou,Full-time,Game Design,Game Design,https://jobs.mattel.com/
+Backend Engineer,backend-engineer,Mattel163,Mattel163,"Hangzhou, China",Hangzhou,Full-time,Engineering,Engineering,https://jobs.mattel.com/
+Data Analyst — Games,data-analyst-games,MDS,"MDS, Digital, Digital Gaming, Digital & Ecommerce","El Segundo, CA",El Segundo,Full-time,Live Ops & Data,Live Ops & Data,https://jobs.mattel.com/
+Product Marketing Manager — UNO,product-marketing-manager-uno,Mattel Games,"Mattel Games Studio, Mattel Games, Games","El Segundo, CA",El Segundo,Full-time,UA & Marketing,UA & Marketing,https://jobs.mattel.com/
+"Senior Manager, Licensing — Games",senior-manager-licensing-games,MDS,"MDS, Digital, Digital Gaming, Digital & Ecommerce","El Segundo, CA",El Segundo,Full-time,Publishing,"Art & Creative, Publishing, Digital, Digital Gaming, Digital & Ecommerce, Mattel Games, TV & Digital",https://jobs.mattel.com/
+QA Lead,qa-lead,Mattel Games Studio,"Mattel Games Studio, Mattel Games, Games","El Segundo, CA",El Segundo,Full-time,Engineering,Engineering,https://jobs.mattel.com/
+Technical Artist,technical-artist,Mattel Games Studio,"Mattel Games Studio, Mattel Games, Games","El Segundo, CA",El Segundo,Full-time,Art & Creative,"Art & Creative, Publishing, Digital, Digital Gaming, Digital & Ecommerce, Mattel Games, TV & Digital",https://jobs.mattel.com/
