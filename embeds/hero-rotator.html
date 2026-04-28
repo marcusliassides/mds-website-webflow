@@ -1,0 +1,229 @@
+<!--
+  MDS — Hero rotator.
+  Paste into the page-level custom code on the homepage (before </body>),
+  OR drop as an Embed inside the hero section.
+
+  Markup contract — build this in Webflow Designer:
+
+    <section class="section-hero" data-hero-rotator
+             aria-roledescription="carousel"
+             aria-label="Featured MDS stories"
+             aria-keyshortcuts="ArrowLeft ArrowRight Space"
+             tabindex="-1">
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-hero-eyebrow>Launching June 5, 2026</span>
+
+          <h1 class="t-hero">
+            <span data-hero-line1>He-Man, on</span><br>
+            <span data-hero-line2>every screen.</span>
+          </h1>
+
+          <p class="hero-blurb t-body-lg" data-hero-blurb>…</p>
+
+          <div class="hero-cta-row">
+            <a href="/games" class="btn btn--primary">See all games</a>
+            <a href="#" class="btn btn--ghost" data-hero-story>Read the story</a>
+          </div>
+
+          <div class="hero-dots" role="tablist">
+            <button class="hero-dot" data-hero-dot="0" aria-label="Slide 1 of 3"><span class="hero-dot__bar"></span></button>
+            <button class="hero-dot" data-hero-dot="1" aria-label="Slide 2 of 3"><span class="hero-dot__bar"></span></button>
+            <button class="hero-dot" data-hero-dot="2" aria-label="Slide 3 of 3"><span class="hero-dot__bar"></span></button>
+          </div>
+        </div>
+
+        <div class="hero-key-art" data-hero-art>…CMS-bound key art…</div>
+      </div>
+
+      <div class="sr-only" aria-live="polite" data-hero-status></div>
+    </section>
+-->
+
+<script>
+  (function () {
+    "use strict";
+
+    var ROTATION_MS = 7000;
+
+    var MOMENTS = [
+      {
+        eyebrow: "Launching June 5, 2026",
+        line1: "He-Man, on",
+        line2: "every screen.",
+        color: "#7A34B7",
+        blurb: "Cloud-native GameNight co-op on Amazon Luna. Launching day-and-date with the Masters of the Universe feature film. Developed by Bandit Island Studios, published by Amazon Games.",
+        storyHref: "/news/motu-legends-unite-launches-june-5-on-amazon-luna",
+        name: "MOTU: Legends Unite"
+      },
+      {
+        eyebrow: "First two titles, 2026",
+        line1: "Our first",
+        line2: "originals ship.",
+        color: "#EA0029",
+        blurb: "Mattel's first two self-published original mobile games launch in 2026, starting a new chapter for Mattel Games Studio.",
+        storyHref: "/news/three-pillars-of-mattels-digital-strategy",
+        name: "Self-published slate"
+      },
+      {
+        eyebrow: "Game night, reimagined",
+        line1: "UNO goes",
+        line2: "everywhere.",
+        color: "#0E7C7B",
+        blurb: "UNO Royale is live on Fortnite via UEFN with Look North World. UNO: Bridge Clash is live on Roblox with Preloaded. The world's number-one card game, meeting fans where they play.",
+        storyHref: "/news/uno-enters-fortnite-and-roblox",
+        name: "UNO on creator platforms"
+      }
+    ];
+
+    var root = document.querySelector("[data-hero-rotator]");
+    if (!root) return;
+
+    var els = {
+      eyebrow: root.querySelector("[data-hero-eyebrow]"),
+      line1: root.querySelector("[data-hero-line1]"),
+      line2: root.querySelector("[data-hero-line2]"),
+      blurb: root.querySelector("[data-hero-blurb]"),
+      story: root.querySelector("[data-hero-story]"),
+      dots: Array.prototype.slice.call(root.querySelectorAll("[data-hero-dot]")),
+      status: root.querySelector("[data-hero-status]")
+    };
+
+    var i = 0;
+    var timer = null;
+    var hovered = false;
+    var paused = false;
+    var prefersReducedMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function render() {
+      var m = MOMENTS[i];
+      if (els.eyebrow) els.eyebrow.textContent = m.eyebrow;
+      if (els.line1) els.line1.textContent = m.line1;
+      if (els.line2) {
+        els.line2.textContent = m.line2;
+        els.line2.style.color = m.color;
+      }
+      if (els.blurb) els.blurb.textContent = m.blurb;
+      if (els.story) els.story.setAttribute("href", m.storyHref);
+      if (els.status) {
+        els.status.textContent = "Showing " + m.name + ", slide " + (i + 1) + " of " + MOMENTS.length + ".";
+      }
+      els.dots.forEach(function (dot, k) {
+        dot.setAttribute("aria-current", k === i ? "true" : "false");
+        var fill = dot.querySelector(".hero-dot__fill");
+        if (k < i && !fill) {
+          var span = document.createElement("span");
+          span.className = "hero-dot__fill";
+          dot.querySelector(".hero-dot__bar").appendChild(span);
+        }
+      });
+
+      // Re-trigger the slide-in animation
+      var copy = root.querySelector(".hero-copy");
+      if (copy) {
+        copy.style.animation = "none";
+        // Force reflow so the animation restarts
+        void copy.offsetWidth;
+        copy.style.animation = "";
+      }
+    }
+
+    function next() {
+      i = (i + 1) % MOMENTS.length;
+      render();
+    }
+
+    function prev() {
+      i = (i - 1 + MOMENTS.length) % MOMENTS.length;
+      render();
+    }
+
+    function go(k) {
+      i = ((k % MOMENTS.length) + MOMENTS.length) % MOMENTS.length;
+      render();
+      restart();
+    }
+
+    function start() {
+      if (timer || paused || prefersReducedMotion || hovered) return;
+      timer = window.setInterval(next, ROTATION_MS);
+    }
+
+    function stop() {
+      if (timer) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function restart() {
+      stop();
+      start();
+    }
+
+    // Init
+    render();
+    start();
+
+    // Hover pause
+    root.addEventListener("mouseenter", function () { hovered = true; stop(); });
+    root.addEventListener("mouseleave", function () { hovered = false; start(); });
+    root.addEventListener("focusin", function () { hovered = true; stop(); });
+    root.addEventListener("focusout", function () { hovered = false; start(); });
+
+    // Keyboard
+    root.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); next(); restart(); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); prev(); restart(); }
+      else if (e.key === " " || e.key === "Spacebar") {
+        if (e.target === root) {
+          e.preventDefault();
+          paused = !paused;
+          paused ? stop() : start();
+        }
+      }
+    });
+
+    // Dot clicks
+    els.dots.forEach(function (dot, k) {
+      dot.addEventListener("click", function () { go(k); });
+    });
+
+    // Reduced-motion live updates
+    if (window.matchMedia) {
+      var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var onChange = function (e) {
+        prefersReducedMotion = e.matches;
+        prefersReducedMotion ? stop() : start();
+      };
+      if (mq.addEventListener) mq.addEventListener("change", onChange);
+      else if (mq.addListener) mq.addListener(onChange);
+    }
+  })();
+</script>
+
+<style>
+  .hero-copy { animation: mds-hero-in 700ms cubic-bezier(.2, .7, .2, 1) both; }
+  @keyframes mds-hero-in {
+    from { opacity: 0; transform: translateX(-12px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .hero-dot[aria-current="true"] .hero-dot__bar {
+    transform: scaleY(1.5);
+    transform-origin: center;
+  }
+  .hero-dot[aria-current="true"] .hero-dot__bar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--mattel-red, #EA0029);
+    transform-origin: left;
+    animation: mds-hero-bar 7000ms linear both;
+  }
+  @keyframes mds-hero-bar {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+</style>

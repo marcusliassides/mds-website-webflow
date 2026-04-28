@@ -1,0 +1,80 @@
+<!--
+  MDS — Global <head> embed.
+  Paste into Webflow → Site Settings → Custom Code → Head Code.
+  Includes:
+    - Font preloads (woff2)
+    - Focus-ring CSS (Mattel Blue)
+    - Reduced-motion override
+    - Dark-mode FOUC guard (sets data-theme before paint)
+    - Theme-color meta
+-->
+
+<!-- Preload critical fonts -->
+<link rel="preload" href="/assets/fonts/MattyMattelSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/MattyMattelSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/MattyMattelSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Theme color (mobile chrome) -->
+<meta name="theme-color" content="#F7F5F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
+
+<style>
+  /* Focus ring — Mattel Blue, 2px outline at 2px offset.
+     Applied site-wide; per-component overrides should still satisfy
+     WCAG 2.2 SC 2.4.11 (Focus Not Obscured) and 2.4.13 (Focus Appearance). */
+  :focus-visible {
+    outline: 2px solid #49A0DB !important;
+    outline-offset: 2px !important;
+    border-radius: 6px;
+  }
+  /* Remove default focus ring only when :focus-visible is supported
+     so keyboard users still get an indicator. */
+  :focus:not(:focus-visible) { outline: none; }
+
+  /* Reduced motion — global kill switch. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Smooth scroll for in-page anchors (anchors only — global scroll-behavior
+     would also affect programmatic scrolls). */
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 8px;
+    padding: 8px 12px;
+    background: #EA0029;
+    color: #fff;
+    z-index: 9999;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: "Matty Mattel Sans", sans-serif;
+    font-weight: 600;
+    transition: top 180ms ease;
+  }
+  .skip-link:focus { top: 8px; }
+</style>
+
+<!-- Dark-mode FOUC guard. Sets data-theme on <html> before paint
+     based on (1) saved preference, (2) system preference. -->
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem("mds-theme");
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = stored || (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  })();
+</script>

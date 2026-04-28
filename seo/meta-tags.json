@@ -1,0 +1,95 @@
+{
+  "$schema": "Per-page SEO meta. Apply via Webflow → Page Settings → SEO Settings.",
+  "site": {
+    "name": "Mattel Digital Studios",
+    "url": "https://digitalstudios.mattel.com",
+    "twitter": "@mattel",
+    "ogImage": "/assets/og-card.png"
+  },
+  "pages": {
+    "/": {
+      "title": "Mattel Digital Studios — Games and digital experiences from Mattel",
+      "description": "Games and digital experiences from Mattel, Inc. 1B+ cumulative downloads across the Mattel163 + Mattel Games Studio mobile portfolio.",
+      "ogTitle": "Mattel Digital Studios",
+      "ogDescription": "Games and digital experiences from Mattel.",
+      "ogType": "website"
+    },
+    "/games": {
+      "title": "Games — Mattel Digital Studios",
+      "description": "The Mattel Digital Studios games portfolio across mobile, console, cloud, and creator platforms.",
+      "ogTitle": "Games · MDS",
+      "ogDescription": "13 active titles across mobile, console, cloud and creator platforms.",
+      "ogType": "website"
+    },
+    "/games/[slug]": {
+      "title": "{{Name}} — Mattel Digital Studios",
+      "description": "{{Summary}}",
+      "ogTitle": "{{Name}}",
+      "ogDescription": "{{Summary}}",
+      "ogType": "website"
+    },
+    "/studios": {
+      "title": "Studios — Mattel Digital Studios",
+      "description": "The first-party studios and development partners that make Mattel games.",
+      "ogTitle": "Studios · MDS",
+      "ogDescription": "First-party studios plus development and creator-platform partners shipping under license.",
+      "ogType": "website"
+    },
+    "/news": {
+      "title": "News — Mattel Digital Studios",
+      "description": "Announcements, partnerships, launches and strategy from Mattel Digital Studios.",
+      "ogTitle": "News · MDS",
+      "ogDescription": "The latest from MDS, Mattel163, Mattel Games Studio and MDS Digital Experiences.",
+      "ogType": "website"
+    },
+    "/news/[slug]": {
+      "title": "{{Title}} — Mattel Digital Studios",
+      "description": "{{Summary}}",
+      "ogTitle": "{{Title}}",
+      "ogDescription": "{{Summary}}",
+      "ogType": "article"
+    },
+    "/about": {
+      "title": "About — Mattel Digital Studios",
+      "description": "Mattel Digital Studios is the operating layer for Mattel's games and digital experiences worldwide.",
+      "ogTitle": "About · MDS",
+      "ogDescription": "Three pillars: licensing, self-publishing, creator platforms.",
+      "ogType": "website"
+    },
+    "/careers": {
+      "title": "Careers — Mattel Digital Studios",
+      "description": "Open roles across Mattel Digital Studios, Mattel163, Mattel Games Studio and partner teams.",
+      "ogTitle": "Careers · MDS",
+      "ogDescription": "Roles across MDS, Mattel163 and Mattel Games Studio.",
+      "ogType": "website"
+    },
+    "/contact": {
+      "title": "Contact — Mattel Digital Studios",
+      "description": "Reach Mattel Digital Studios for partnerships, press, and licensing inquiries.",
+      "ogTitle": "Contact · MDS",
+      "ogDescription": "Partnership, press, and investor inquiries.",
+      "ogType": "website"
+    },
+    "/brand": {
+      "title": "Brand — Mattel Digital Studios",
+      "description": "MDS brand system — colors, type, motion, and the rules that hold them together.",
+      "ogTitle": "Brand · MDS",
+      "ogDescription": "Mattel M26 brand system applied to the MDS site.",
+      "ogType": "website"
+    },
+    "/press-kit": {
+      "title": "Press kit — Mattel Digital Studios",
+      "description": "Press kits, brand assets, and downloadable resources for journalists and partners.",
+      "ogTitle": "Press kit · MDS",
+      "ogDescription": "Logos, key art, fact sheets, and bios.",
+      "ogType": "website"
+    },
+    "/accessibility": {
+      "title": "Accessibility — Mattel Digital Studios",
+      "description": "MDS accessibility commitments and how to request accommodations.",
+      "ogTitle": "Accessibility · MDS",
+      "ogDescription": "WCAG 2.2 AA conformance commitments.",
+      "ogType": "website"
+    }
+  }
+}

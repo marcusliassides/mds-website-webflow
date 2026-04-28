@@ -1,0 +1,13 @@
+# Mattel Digital Studios
+# digitalstudios.mattel.com
+
+User-agent: *
+Allow: /
+
+# Block search-result pages and any draft preview routes
+Disallow: /search
+Disallow: /preview/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://digitalstudios.mattel.com/sitemap.xml

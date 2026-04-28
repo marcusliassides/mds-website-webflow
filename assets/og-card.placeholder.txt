@@ -1,0 +1,13 @@
+Replace this placeholder with the production OG card image at:
+
+  assets/og-card.png
+
+Specs:
+- 1200x630 PNG, < 200KB.
+- Matty Mattel Sans display headline, max 56px.
+- Mattel Red (#EA0029) accent.
+- Mattel Black (#0B0B0C) or Warm White (#F7F5F4) background — match the site's default theme.
+- "Mattel Digital Studios" wordmark bottom-left.
+- Use the M26 Seal-as-Window framing if image-heavy; flat if text-only.
+
+Export from the source Figma file (Design Handoff → MDS — Social Cards).

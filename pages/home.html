@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mattel Digital Studios — Games and digital experiences from Mattel</title>
+  <meta name="description" content="Games and digital experiences from Mattel, Inc. 1B+ cumulative downloads across the Mattel163 + Mattel Games Studio mobile portfolio.">
+  <link rel="canonical" href="https://digitalstudios.mattel.com/">
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/typography.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/utilities.css">
+  <!-- Webflow-built site adds head-global.html embed here -->
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- =====================================================================
+       NAV — global. Render once in Webflow as a Symbol.
+       ===================================================================== -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" aria-label="Mattel Digital Studios home">MDS</a>
+      <nav aria-label="Primary">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="/games">Games</a></li>
+          <li><a class="nav__link" href="/studios">Studios</a></li>
+          <li><a class="nav__link" href="/news">News</a></li>
+          <li><a class="nav__link" href="/about">About</a></li>
+          <li><a class="nav__link" href="/careers">Careers</a></li>
+          <li><a class="nav__link" href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="btn btn--ghost" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+        <span data-theme-icon-light aria-hidden="true">◐</span>
+        <span data-theme-icon-dark aria-hidden="true" style="display:none">◑</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- =====================================================================
+         HERO — featured stories rotator. See embeds/hero-rotator.html
+         Breakpoint: stack to single column at <= 980px.
+         ===================================================================== -->
+    <section class="section-hero" data-hero-rotator
+             aria-roledescription="carousel"
+             aria-label="Featured MDS stories"
+             aria-keyshortcuts="ArrowLeft ArrowRight Space"
+             tabindex="-1">
+      <div class="hero-glow" aria-hidden="true">
+        <div class="hero-glow__a" style="top:-20%;left:-10%;width:70%;height:120%;background:radial-gradient(closest-side,#7A34B755,transparent 70%);"></div>
+        <div class="hero-glow__b" style="top:10%;right:-15%;width:60%;height:90%;background:radial-gradient(closest-side,#EA002940,transparent 70%);"></div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-hero-eyebrow>Launching June 5, 2026</span>
+
+          <h1 class="t-hero" style="margin-top:18px">
+            <span data-hero-line1>He-Man, on</span><br>
+            <span data-hero-line2 style="color:#7A34B7">every screen.</span>
+          </h1>
+
+          <p class="hero-blurb t-body-lg" data-hero-blurb>
+            Cloud-native GameNight co-op on Amazon Luna. Launching day-and-date with the Masters of the Universe feature film. Developed by Bandit Island Studios, published by Amazon Games.
+          </p>
+
+          <div class="hero-cta-row">
+            <a href="/games" class="btn btn--primary">See all games</a>
+            <a href="/news/motu-legends-unite-launches-june-5-on-amazon-luna" class="btn btn--ghost" data-hero-story>Read the story</a>
+          </div>
+
+          <div class="hero-dots" role="tablist" aria-label="Hero slides">
+            <button class="hero-dot" data-hero-dot="0" aria-current="true" aria-label="Slide 1 of 3"><span class="hero-dot__bar"></span></button>
+            <button class="hero-dot" data-hero-dot="1" aria-label="Slide 2 of 3"><span class="hero-dot__bar"></span></button>
+            <button class="hero-dot" data-hero-dot="2" aria-label="Slide 3 of 3"><span class="hero-dot__bar"></span></button>
+          </div>
+        </div>
+
+        <div class="hero-key-art" data-hero-art aria-hidden="true">
+          <!-- CMS-bound key art image. Placeholder gradient if no asset. -->
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,#7A34B7,#EA0029);"></div>
+        </div>
+      </div>
+
+      <div class="sr-only" aria-live="polite" data-hero-status></div>
+    </section>
+
+    <!-- =====================================================================
+         STATS — Numbers strip. Plain HTML, not CMS-bound.
+         IX2: fade-up on scroll into view.
+         ===================================================================== -->
+    <section class="section section--md" data-ix-fade-up>
+      <div class="container">
+        <h2 class="t-section">By the numbers.</h2>
+        <p class="t-body-lg muted" style="max-width:640px;margin-top:12px">
+          The Mattel digital portfolio in one strip. Updated quarterly.
+        </p>
+        <div class="grid-4" style="margin-top:48px">
+          <div class="stat">
+            <p class="stat__value">1B+</p>
+            <p class="stat__label">Cumulative downloads</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">20M</p>
+            <p class="stat__label">Monthly active users</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">13</p>
+            <p class="stat__label">Active titles</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">6</p>
+            <p class="stat__label">Platform categories</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         COMING — featured upcoming titles.
+         CMS: Games Collection, filtered by Status="Coming" AND Featured=true,
+         sort by Window ascending. Limit 4.
+         ===================================================================== -->
+    <section class="section section--md" style="background:var(--surface-elevated)">
+      <div class="container">
+        <span class="eyebrow">Coming soon</span>
+        <h2 class="t-section" style="margin-top:8px">The 2026 slate.</h2>
+
+        <!-- CMS: Games Collection (filtered, limit 4) -->
+        <div class="grid-4" style="margin-top:40px">
+
+          <!-- Card template — duplicate per CMS item -->
+          <a href="/games/skeletor-runner" class="card-game">
+            <div class="card-game__art" style="background:linear-gradient(135deg,#2F6D3F,#0B0B0C)"></div>
+            <div class="card-game__body">
+              <p class="card-game__brand">Masters of the Universe</p>
+              <h3 class="card-game__title">Skeletor Runner</h3>
+              <p class="card-game__meta">Mattel Games Studio · iOS · Android · May 2026</p>
+            </div>
+          </a>
+
+          <a href="/games/motu-legends-unite" class="card-game">
+            <div class="card-game__art" style="background:linear-gradient(135deg,#EA9B2F,#7A34B7)"></div>
+            <div class="card-game__body">
+              <p class="card-game__brand">Masters of the Universe</p>
+              <h3 class="card-game__title">MOTU: Legends Unite</h3>
+              <p class="card-game__meta">Bandit Island · Amazon Luna · Jun 5 2026</p>
+            </div>
+          </a>
+
+          <a href="/games/uno-next" class="card-game">
+            <div class="card-game__art" style="background:linear-gradient(135deg,#EA0029,#0B0B0C)"></div>
+            <div class="card-game__body">
+              <p class="card-game__brand">UNO</p>
+              <h3 class="card-game__title">UNO — Next</h3>
+              <p class="card-game__meta">Mattel Games Studio · iOS · Android · 2026</p>
+            </div>
+          </a>
+
+          <a href="/games/project-wild" class="card-game">
+            <div class="card-game__art" style="background:linear-gradient(135deg,#7A34B7,#0E7C7B)"></div>
+            <div class="card-game__body">
+              <p class="card-game__brand">Mattel IP</p>
+              <h3 class="card-game__title">Project Wild</h3>
+              <p class="card-game__meta">Mattel Games Studio · iOS · Android · Sep 2026</p>
+            </div>
+          </a>
+
+        </div>
+
+        <div style="margin-top:40px">
+          <a href="/games" class="btn btn--secondary">See all games</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         PILLARS — three pillars of digital strategy. Editorial copy.
+         ===================================================================== -->
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">Three pillars</span>
+        <h2 class="t-section" style="margin-top:8px;max-width:840px">
+          How Mattel ships in games.
+        </h2>
+
+        <div class="grid-3" style="margin-top:48px">
+          <article class="card">
+            <p class="t-mono muted" style="margin:0 0 12px">01 / Licensing</p>
+            <h3 class="t-card-lg">World-class partners.</h3>
+            <p class="t-body-md" style="margin-top:12px;color:var(--text-secondary)">
+              Take-Two, Xbox, SuperCell, Netflix, Apple Arcade, Amazon Games. Mattel IP, paired with the best in the business.
+            </p>
+          </article>
+
+          <article class="card">
+            <p class="t-mono muted" style="margin:0 0 12px">02 / Self-publishing</p>
+            <h3 class="t-card-lg">Originals from Mattel Games Studio.</h3>
+            <p class="t-body-md" style="margin-top:12px;color:var(--text-secondary)">
+              Funded and shipped in-house. The first two original mobile titles launch in 2026.
+            </p>
+          </article>
+
+          <article class="card">
+            <p class="t-mono muted" style="margin:0 0 12px">03 / Creator platforms</p>
+            <h3 class="t-card-lg">Roblox, Fortnite, and what comes next.</h3>
+            <p class="t-body-md" style="margin-top:12px;color:var(--text-secondary)">
+              UNO Royale on Fortnite. UNO: Bridge Clash on Roblox. Mattel brands meeting fans where they already play.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         LATEST NEWS — three most recent. CMS: News Collection, sort Date desc, limit 3.
+         ===================================================================== -->
+    <section class="section section--md" style="background:var(--surface-elevated)">
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:24px;margin-bottom:32px">
+          <div>
+            <span class="eyebrow">Newsroom</span>
+            <h2 class="t-section" style="margin-top:8px">Latest from MDS.</h2>
+          </div>
+          <a href="/news" class="btn btn--ghost">All news →</a>
+        </div>
+
+        <!-- CMS: News Collection (limit 3) -->
+        <div>
+          <a href="/news/motu-legends-unite-launches-june-5-on-amazon-luna" class="card-news">
+            <span class="card-news__date">Mar 31 2026 · Announcement</span>
+            <div>
+              <h3 class="card-news__title">MOTU: Legends Unite launches June 5 on Amazon Luna</h3>
+              <p class="card-news__sub">GameNight cloud co-op blending roguelike deck-building with arcade mini-games, launching day-and-date with the Masters of the Universe feature film across 14 countries.</p>
+            </div>
+          </a>
+          <a href="/news/uno-enters-fortnite-and-roblox" class="card-news">
+            <span class="card-news__date">Feb 26 2026 · Partnership</span>
+            <div>
+              <h3 class="card-news__title">UNO enters Fortnite and Roblox</h3>
+              <p class="card-news__sub">UNO Royale arrives on Fortnite via UEFN with Look North World. UNO: Bridge Clash arrives on Roblox with Preloaded.</p>
+            </div>
+          </a>
+          <a href="/news/three-pillars-of-mattels-digital-strategy" class="card-news">
+            <span class="card-news__date">Feb 10 2026 · Strategy</span>
+            <div>
+              <h3 class="card-news__title">Three pillars of Mattel's digital strategy</h3>
+              <p class="card-news__sub">Licensing with world-class partners. Self-publishing of original mobile games. Expansion on creator platforms such as Roblox and Fortnite.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       FOOTER — global. Render once as a Symbol.
+       ===================================================================== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__col">
+        <h4>Mattel Digital Studios</h4>
+        <p class="t-body-sm" style="opacity:0.72;max-width:340px">
+          Games and digital experiences from Mattel, Inc. — operating across mobile, console, cloud, and creator platforms.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/games">Games</a></li>
+          <li><a href="/studios">Studios</a></li>
+          <li><a href="/news">News</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Press</h4>
+        <ul>
+          <li><a href="/press-kit">Press kit</a></li>
+          <li><a href="/brand">Brand</a></li>
+          <li><a href="/accessibility">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>© 2026 Mattel, Inc.</span>
+      <span>digitalstudios.mattel.com</span>
+    </div>
+  </footer>
+
+  <!-- Webflow-built site appends body-global.html and hero-rotator.html embeds here -->
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CMS-bound: Webflow → Page Settings → Title = {{Name}} | Mattel Digital Studios -->
+  <title>{{Name}} — Mattel Digital Studios</title>
+  <meta name="description" content="{{Summary}}">
+  <link rel="canonical" href="https://digitalstudios.mattel.com/games/{{Slug}}">
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/typography.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/utilities.css">
+  <!-- Page-level: paste the VideoGame + BreadcrumbList JSON-LD blocks from embeds/json-ld.html -->
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- NAV symbol -->
+
+  <main id="main">
+
+    <!-- =====================================================================
+         GAME HERO — Collection Template Page (CMS: Games)
+         All fields wired to Games collection.
+         ===================================================================== -->
+    <section class="section section--md" style="background:var(--surface-page)">
+      <div class="container">
+
+        <nav aria-label="Breadcrumb" class="t-mono muted" style="margin-bottom:24px">
+          <a href="/" style="color:inherit;text-decoration:none">Home</a>
+          <span aria-hidden="true"> / </span>
+          <a href="/games" style="color:inherit;text-decoration:none">Games</a>
+          <span aria-hidden="true"> / </span>
+          <span aria-current="page">{{Name}}</span>
+        </nav>
+
+        <div class="grid-2" style="gap:64px;align-items:center">
+          <div>
+            <span class="eyebrow">{{Brand}}</span>
+            <h1 class="t-page" style="margin-top:8px">{{Name}}</h1>
+
+            <div class="cluster" style="margin-top:20px">
+              <span class="tag tag--status-live">{{Status}}</span>
+              <span class="t-mono muted">{{Studio}}</span>
+              <span class="t-mono muted">{{Platform}}</span>
+              <span class="t-mono muted">{{Window}}</span>
+            </div>
+
+            <p class="t-serif" style="margin-top:32px;max-width:560px;font-size:20px;line-height:1.6">
+              {{Summary}}
+            </p>
+
+            <div class="hero-cta-row" style="margin-top:36px">
+              <!-- Webflow conditional visibility: show "Play now" only if game.Status === "Live" -->
+              <a href="#" class="btn btn--primary">Play now</a>
+              <a href="/news?game={{Slug}}" class="btn btn--ghost">Latest news →</a>
+            </div>
+          </div>
+
+          <!-- Key art (CMS-bound image; gradient placeholder) -->
+          <div class="hero-key-art" style="background:linear-gradient(135deg,{{Color}},#0B0B0C)"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         FACT STRIP — Studio, partners, platforms.
+         ===================================================================== -->
+    <section class="section--sm" style="border-top:1px solid var(--border-hairline);border-bottom:1px solid var(--border-hairline);background:var(--surface-elevated)">
+      <div class="container">
+        <div class="grid-4">
+          <div>
+            <p class="t-eyebrow">Studio</p>
+            <p class="t-card-md" style="margin-top:8px">{{Studio}}</p>
+          </div>
+          <div>
+            <p class="t-eyebrow">Platform</p>
+            <p class="t-card-md" style="margin-top:8px">{{Platform}}</p>
+          </div>
+          <div>
+            <p class="t-eyebrow">Status</p>
+            <p class="t-card-md" style="margin-top:8px">{{Status}}</p>
+          </div>
+          <div>
+            <p class="t-eyebrow">{{Status === "Live" ? "Released" : "Window"}}</p>
+            <p class="t-card-md" style="margin-top:8px">{{Window}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         RELATED — News tagged to this game.
+         CMS: News Collection, filtered where (Title or Summary contains {{Name}}).
+         ===================================================================== -->
+    <section class="section section--md">
+      <div class="container">
+        <h2 class="t-section">Latest news.</h2>
+
+        <div style="margin-top:32px">
+          <!-- Per-CMS-item template -->
+          <a href="/news/{{news-slug}}" class="card-news">
+            <span class="card-news__date">{{news-date}} · {{news-tag}}</span>
+            <div>
+              <h3 class="card-news__title">{{news-title}}</h3>
+              <p class="card-news__sub">{{news-summary}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER symbol -->
+</body>
+</html>

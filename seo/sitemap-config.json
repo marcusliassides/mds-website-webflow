@@ -1,0 +1,36 @@
+{
+  "$schema": "Webflow auto-generates /sitemap.xml from published pages and CMS items. This file documents the expected entries and per-entry frequency / priority hints for SEO ops.",
+  "baseUrl": "https://digitalstudios.mattel.com",
+  "static": [
+    { "loc": "/", "changefreq": "weekly", "priority": 1.0 },
+    { "loc": "/games", "changefreq": "weekly", "priority": 0.9 },
+    { "loc": "/studios", "changefreq": "monthly", "priority": 0.7 },
+    { "loc": "/news", "changefreq": "daily", "priority": 0.9 },
+    { "loc": "/about", "changefreq": "monthly", "priority": 0.6 },
+    { "loc": "/careers", "changefreq": "weekly", "priority": 0.7 },
+    { "loc": "/contact", "changefreq": "monthly", "priority": 0.5 },
+    { "loc": "/brand", "changefreq": "monthly", "priority": 0.4 },
+    { "loc": "/press-kit", "changefreq": "monthly", "priority": 0.6 },
+    { "loc": "/accessibility", "changefreq": "yearly", "priority": 0.3 }
+  ],
+  "cms": [
+    {
+      "collection": "Games",
+      "pattern": "/games/{slug}",
+      "changefreq": "monthly",
+      "priority": 0.8
+    },
+    {
+      "collection": "News",
+      "pattern": "/news/{slug}",
+      "changefreq": "monthly",
+      "priority": 0.7,
+      "lastmod": "{Date}"
+    }
+  ],
+  "exclude": [
+    "/preview/*",
+    "/api/*",
+    "/404"
+  ]
+}

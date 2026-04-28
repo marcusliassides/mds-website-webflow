@@ -1,0 +1,30 @@
+{
+  "$schema": "301 redirects. Apply via Webflow → Site Settings → Hosting → 301 Redirects (one row per entry, From → To).",
+  "redirects": [
+    { "from": "/games/MGS-01", "to": "/games/skeletor-runner" },
+    { "from": "/games/MGS-02", "to": "/games/uno-next" },
+    { "from": "/games/MGS-03", "to": "/games/project-wild" },
+    { "from": "/games/LIC-03", "to": "/games/motu-legends-unite" },
+    { "from": "/games/DX-04", "to": "/games/project-quill" },
+    { "from": "/games/LV-01", "to": "/games/uno" },
+    { "from": "/games/LV-02", "to": "/games/uno-wonder" },
+    { "from": "/games/LV-03", "to": "/games/phase-10" },
+    { "from": "/games/LV-04", "to": "/games/skip-bo" },
+    { "from": "/games/LV-05", "to": "/games/uno-royale" },
+    { "from": "/games/LV-06", "to": "/games/uno-bridge-clash" },
+    { "from": "/games/LV-07", "to": "/games/hot-wheels-lets-race-ultimate-speed" },
+    { "from": "/games/LV-08", "to": "/games/hot-wheels-race-off-plus" },
+
+    { "from": "/index.html", "to": "/" },
+    { "from": "/home", "to": "/" },
+    { "from": "/press", "to": "/press-kit" },
+    { "from": "/jobs", "to": "/careers" },
+    { "from": "/team", "to": "/about" },
+    { "from": "/leadership", "to": "/about" },
+    { "from": "/partners", "to": "/studios" },
+
+    {
+      "$comment": "Catch-all from the legacy slugless news codes. Webflow does not natively support wildcard 301s — implement these as one-off rows once legacy URLs are catalogued in analytics."
+    }
+  ]
+}

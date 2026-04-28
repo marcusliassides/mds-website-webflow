@@ -1,0 +1,158 @@
+/* MDS — M26 Brand System tokens.
+   Mirrors webflow-variables.json one-to-one. Use as reference when
+   building Webflow Variables, or paste into a global CSS embed if you
+   need raw CSS custom properties (Webflow already provides Variables
+   as CSS vars, so this file is mainly documentation). */
+
+:root {
+  /* ==== Brand palette ==== */
+  --mattel-red: #ea0029;
+  --mattel-yellow: #ffbe33;
+  --mattel-pink: #eb50b2;
+  --mattel-pink-on-light: #b8156d;
+  --mattel-blue: #49a0db;
+  --mattel-black: #0b0b0c;
+  --mattel-warm-white: #f7f5f4;
+  --mattel-steel: #636569;
+  --mattel-steel-light: #b8bec4;
+
+  /* ==== Surfaces ==== */
+  --surface-page: var(--mattel-warm-white);
+  --surface-elevated: #ffffff;
+  --surface-inverse: var(--mattel-black);
+
+  /* ==== Text ==== */
+  --text-primary: #111111;
+  --text-secondary: var(--mattel-steel);
+  --text-muted: var(--mattel-steel-light);
+  --text-inverse: #ffffff;
+
+  /* ==== Borders ==== */
+  --border-hairline: rgba(0, 0, 0, 0.08);
+  --border-default: var(--mattel-steel-light);
+  --border-strong: var(--mattel-steel);
+
+  /* ==== State ==== */
+  --focus-ring: var(--mattel-blue);
+  --color-error: #c8102e;
+  --color-error-bg: #fbe2e6;
+  --color-success: var(--mattel-yellow);
+  --color-success-bg: #fff3d1;
+  --color-info: var(--mattel-blue);
+  --color-info-bg: #e1f0fa;
+
+  /* ==== Game brand colors (CMS values) ==== */
+  --game-uno: #ea0029;
+  --game-uno-wonder: #eb50b2;
+  --game-hot-wheels: #ff6a00;
+  --game-phase-10: #ffbe33;
+  --game-skip-bo: #49a0db;
+  --game-motu-green: #2f6d3f;
+  --game-motu-purple: #7a34b7;
+  --game-polly-pocket: #eb50b2;
+  --game-monster-high: #7a34b7;
+  --game-digital-experiences: #0e7c7b;
+
+  /* ==== Typography ==== */
+  --font-display: "Matty Mattel Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --fs-hero: clamp(52px, 7vw, 88px);
+  --fs-page: clamp(48px, 5vw, 72px);
+  --fs-section: clamp(40px, 4vw, 64px);
+  --fs-block: clamp(36px, 3.5vw, 56px);
+  --fs-card-lg: 32px;
+  --fs-card-md: 22px;
+  --fs-card-sm: 18px;
+  --fs-body-lg: 18px;
+  --fs-body-md: 15px;
+  --fs-body-sm: 13px;
+  --fs-caption: 11px;
+
+  --lh-display: 0.96;
+  --lh-tight: 1.15;
+  --lh-snug: 1.4;
+  --lh-normal: 1.55;
+  --lh-relaxed: 1.7;
+
+  --ls-display: -0.01em;
+  --ls-body: 0em;
+  --ls-eyebrow: 0.14em;
+  --ls-caps: 0.1em;
+
+  /* ==== Spacing ==== */
+  --stack-1: 8px;
+  --stack-2: 12px;
+  --stack-3: 20px;
+  --stack-4: 32px;
+  --stack-5: 48px;
+  --stack-6: 64px;
+
+  --section-y-lg: 120px;
+  --section-y-md: 88px;
+  --section-y-sm: 56px;
+
+  --container-x-desktop: 48px;
+  --container-x-mobile: 20px;
+
+  --width-max: 1320px;
+  --width-narrow: 840px;
+  --width-read: 640px;
+
+  /* ==== Radius ==== */
+  --radius-button: 6px;
+  --radius-card: 14px;
+  --radius-card-lg: 20px;
+  --radius-pill: 999px;
+  --radius-chip: 3px;
+
+  /* ==== Shadow ==== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 12px 24px 0 rgba(0, 0, 0, 0.16);
+  --shadow-hover: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
+
+  /* ==== Motion ==== */
+  --dur-hover: 180ms;
+  --dur-page: 400ms;
+  --dur-hero: 700ms;
+  --dur-hero-interval: 7000ms;
+
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-out: ease-out;
+  --ease-in-out: ease;
+
+  /* ==== Targets ==== */
+  --target-min: 44px;
+}
+
+/* Dark mode — applied via [data-theme="dark"] on <html>. */
+[data-theme="dark"] {
+  --surface-page: var(--mattel-black);
+  --surface-elevated: #131316;
+  --surface-inverse: var(--mattel-warm-white);
+
+  --text-primary: #ffffff;
+  --text-secondary: var(--mattel-steel-light);
+  --text-muted: var(--mattel-steel);
+  --text-inverse: var(--mattel-black);
+
+  --border-hairline: rgba(255, 255, 255, 0.12);
+  --border-default: #3a3a3f;
+  --border-strong: var(--mattel-steel-light);
+
+  --color-error: #ff5c73;
+  --color-error-bg: #3a1318;
+  --color-success-bg: #3a2d08;
+  --color-info-bg: #0f2a3d;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 24px 0 rgba(0, 0, 0, 0.6);
+  --shadow-hover: 0 8px 24px 0 rgba(0, 0, 0, 0.45);
+}

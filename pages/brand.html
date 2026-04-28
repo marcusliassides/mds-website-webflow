@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brand — Mattel Digital Studios</title>
+  <meta name="description" content="MDS brand system — colors, type, motion, and the rules that hold them together.">
+  <link rel="canonical" href="https://digitalstudios.mattel.com/brand">
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/typography.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/utilities.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- NAV symbol -->
+
+  <main id="main">
+
+    <section class="section section--md">
+      <div class="container container--narrow">
+        <span class="eyebrow">Brand</span>
+        <h1 class="t-page" style="margin-top:8px">The MDS brand system.</h1>
+        <p class="t-body-lg muted" style="margin-top:24px">
+          A working reference for anyone designing, building, or shipping for Mattel Digital Studios. Anchored to Mattel's M26 corporate brand system.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Colors ===== -->
+    <section class="section--sm" style="border-top:1px solid var(--border-hairline)">
+      <div class="container">
+        <span class="eyebrow">01 / Color</span>
+        <h2 class="t-block" style="margin-top:8px">Brand palette.</h2>
+
+        <div class="grid-4" style="margin-top:32px">
+          <div>
+            <div style="aspect-ratio:1;background:#EA0029;border-radius:var(--radius-card)"></div>
+            <p class="t-card-sm" style="margin-top:12px">Mattel Red</p>
+            <button class="t-mono" data-copy="#EA0029" style="display:block;margin-top:4px;border:0;background:transparent;color:var(--text-secondary);cursor:pointer;padding:0">
+              <span data-copy-label>#EA0029</span>
+            </button>
+          </div>
+          <div>
+            <div style="aspect-ratio:1;background:#FFBE33;border-radius:var(--radius-card)"></div>
+            <p class="t-card-sm" style="margin-top:12px">Mattel Yellow</p>
+            <button class="t-mono" data-copy="#FFBE33" style="display:block;margin-top:4px;border:0;background:transparent;color:var(--text-secondary);cursor:pointer;padding:0">
+              <span data-copy-label>#FFBE33</span>
+            </button>
+          </div>
+          <div>
+            <div style="aspect-ratio:1;background:#0B0B0C;border-radius:var(--radius-card)"></div>
+            <p class="t-card-sm" style="margin-top:12px">Mattel Black</p>
+            <button class="t-mono" data-copy="#0B0B0C" style="display:block;margin-top:4px;border:0;background:transparent;color:var(--text-secondary);cursor:pointer;padding:0">
+              <span data-copy-label>#0B0B0C</span>
+            </button>
+          </div>
+          <div>
+            <div style="aspect-ratio:1;background:#F7F5F4;border:1px solid var(--border-hairline);border-radius:var(--radius-card)"></div>
+            <p class="t-card-sm" style="margin-top:12px">Warm White</p>
+            <button class="t-mono" data-copy="#F7F5F4" style="display:block;margin-top:4px;border:0;background:transparent;color:var(--text-secondary);cursor:pointer;padding:0">
+              <span data-copy-label>#F7F5F4</span>
+            </button>
+          </div>
+        </div>
+
+        <p class="t-body-sm muted" style="margin-top:32px;max-width:640px">
+          Hard rule (M26 p.78) — error states must NOT use Mattel Red. Use the dedicated error token #C8102E.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Type ===== -->
+    <section class="section section--md" style="background:var(--surface-elevated)">
+      <div class="container">
+        <span class="eyebrow">02 / Type</span>
+        <h2 class="t-block" style="margin-top:8px">Typography.</h2>
+
+        <div style="margin-top:48px">
+          <p class="t-mono muted">Display — Matty Mattel Sans</p>
+          <p class="t-hero" style="margin-top:8px">Aa</p>
+        </div>
+        <div style="margin-top:48px">
+          <p class="t-mono muted">Long-form — Source Serif 4</p>
+          <p class="t-serif" style="font-size:48px;margin-top:8px">Aa</p>
+        </div>
+        <div style="margin-top:48px">
+          <p class="t-mono muted">Supporting — JetBrains Mono</p>
+          <p class="t-mono" style="font-size:32px;margin-top:8px">Aa</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Motion ===== -->
+    <section class="section--sm">
+      <div class="container">
+        <span class="eyebrow">03 / Motion</span>
+        <h2 class="t-block" style="margin-top:8px">Motion principles.</h2>
+        <ul class="prose" style="margin-top:24px;list-style:none;padding:0">
+          <li><strong>Hover / lift</strong> — translateY(-2px), 180ms ease.</li>
+          <li><strong>Page / fade-in</strong> — opacity 400ms ease-out.</li>
+          <li><strong>Hero / slide</strong> — translateX + opacity 700ms cubic-bezier(.2, .7, .2, 1).</li>
+          <li><strong>Hero interval</strong> — 7000ms.</li>
+          <li><strong>Reduced motion</strong> — every animation collapses to 0.01ms when prefers-reduced-motion: reduce.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER symbol -->
+
+  <!-- Page-level: paste embeds/copy-to-clipboard.html before </body> -->
+</body>
+</html>

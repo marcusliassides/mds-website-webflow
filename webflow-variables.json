@@ -1,0 +1,146 @@
+{
+  "$schema": "https://webflow.com/schemas/variables.json",
+  "name": "MDS — M26 Brand System",
+  "description": "Mattel Digital Studios design tokens, sourced from M26 Mattel Brand Guide 2026 and DESIGN.md handoff.",
+  "modes": ["light", "dark"],
+  "collections": {
+    "Color": {
+      "Brand / Mattel Red": { "light": "#EA0029", "dark": "#EA0029" },
+      "Brand / Mattel Yellow": { "light": "#FFBE33", "dark": "#FFBE33" },
+      "Brand / Mattel Pink": { "light": "#EB50B2", "dark": "#EB50B2" },
+      "Brand / Mattel Pink On Light": { "light": "#B8156D", "dark": "#B8156D" },
+      "Brand / Mattel Blue": { "light": "#49A0DB", "dark": "#49A0DB" },
+      "Brand / Mattel Black": { "light": "#0B0B0C", "dark": "#0B0B0C" },
+      "Brand / Mattel Warm White": { "light": "#F7F5F4", "dark": "#F7F5F4" },
+      "Brand / Steel": { "light": "#636569", "dark": "#636569" },
+      "Brand / Steel Light": { "light": "#B8BEC4", "dark": "#B8BEC4" },
+
+      "Surface / Page": { "light": "#F7F5F4", "dark": "#0B0B0C" },
+      "Surface / Elevated": { "light": "#FFFFFF", "dark": "#131316" },
+      "Surface / Inverse": { "light": "#0B0B0C", "dark": "#F7F5F4" },
+
+      "Text / Primary": { "light": "#111111", "dark": "#FFFFFF" },
+      "Text / Secondary": { "light": "#636569", "dark": "#B8BEC4" },
+      "Text / Muted": { "light": "#B8BEC4", "dark": "#636569" },
+      "Text / Inverse": { "light": "#FFFFFF", "dark": "#0B0B0C" },
+
+      "Border / Hairline": { "light": "rgba(0,0,0,0.08)", "dark": "rgba(255,255,255,0.12)" },
+      "Border / Default": { "light": "#B8BEC4", "dark": "#3A3A3F" },
+      "Border / Strong": { "light": "#636569", "dark": "#B8BEC4" },
+
+      "State / Focus Ring": { "light": "#49A0DB", "dark": "#49A0DB" },
+      "State / Error": { "light": "#C8102E", "dark": "#FF5C73" },
+      "State / Error Bg": { "light": "#FBE2E6", "dark": "#3A1318" },
+      "State / Success": { "light": "#FFBE33", "dark": "#FFBE33" },
+      "State / Success Bg": { "light": "#FFF3D1", "dark": "#3A2D08" },
+      "State / Info": { "light": "#49A0DB", "dark": "#49A0DB" },
+      "State / Info Bg": { "light": "#E1F0FA", "dark": "#0F2A3D" },
+
+      "Game / UNO": { "light": "#EA0029", "dark": "#EA0029" },
+      "Game / UNO Wonder": { "light": "#EB50B2", "dark": "#EB50B2" },
+      "Game / Hot Wheels": { "light": "#FF6A00", "dark": "#FF6A00" },
+      "Game / Phase 10": { "light": "#FFBE33", "dark": "#FFBE33" },
+      "Game / Skip-Bo": { "light": "#49A0DB", "dark": "#49A0DB" },
+      "Game / MOTU Green": { "light": "#2F6D3F", "dark": "#3F8A52" },
+      "Game / MOTU Purple": { "light": "#7A34B7", "dark": "#9550D6" },
+      "Game / Polly Pocket": { "light": "#EB50B2", "dark": "#EB50B2" },
+      "Game / Monster High": { "light": "#7A34B7", "dark": "#9550D6" },
+      "Game / Digital Experiences": { "light": "#0E7C7B", "dark": "#16A8A6" }
+    },
+
+    "Typography / Font Family": {
+      "Display": "\"Matty Mattel Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+      "Serif": "\"Source Serif 4\", Georgia, \"Times New Roman\", serif",
+      "Mono": "\"JetBrains Mono\", \"SF Mono\", Menlo, Consolas, monospace"
+    },
+
+    "Typography / Font Weight": {
+      "Regular": 400,
+      "SemiBold": 600,
+      "Bold": 700
+    },
+
+    "Typography / Size": {
+      "Hero": "clamp(52px, 7vw, 88px)",
+      "Page": "clamp(48px, 5vw, 72px)",
+      "Section": "clamp(40px, 4vw, 64px)",
+      "Block": "clamp(36px, 3.5vw, 56px)",
+      "Card-Lg": "32px",
+      "Card-Md": "22px",
+      "Card-Sm": "18px",
+      "Body-Lg": "18px",
+      "Body-Md": "15px",
+      "Body-Sm": "13px",
+      "Caption": "11px"
+    },
+
+    "Typography / Line Height": {
+      "Display": 0.96,
+      "Tight": 1.15,
+      "Snug": 1.4,
+      "Normal": 1.55,
+      "Relaxed": 1.7
+    },
+
+    "Typography / Letter Spacing": {
+      "Display": "-0.01em",
+      "Body": "0em",
+      "Eyebrow": "0.14em",
+      "Caps": "0.1em"
+    },
+
+    "Spacing / Stack": {
+      "1": "8px",
+      "2": "12px",
+      "3": "20px",
+      "4": "32px",
+      "5": "48px",
+      "6": "64px"
+    },
+
+    "Spacing / Section Y": {
+      "Lg": "120px",
+      "Md": "88px",
+      "Sm": "56px"
+    },
+
+    "Spacing / Container X": {
+      "Desktop": "48px",
+      "Mobile": "20px"
+    },
+
+    "Spacing / Width": {
+      "Max": "1320px",
+      "Narrow": "840px",
+      "Read": "640px"
+    },
+
+    "Radius": {
+      "Button": "6px",
+      "Card": "14px",
+      "Card-Lg": "20px",
+      "Pill": "999px",
+      "Chip": "3px"
+    },
+
+    "Shadow": {
+      "Sm": "0 1px 2px 0 rgba(0,0,0,0.08)",
+      "Md": "0 4px 8px 0 rgba(0,0,0,0.12)",
+      "Lg": "0 12px 24px 0 rgba(0,0,0,0.16)",
+      "Hover": "0 8px 24px 0 rgba(0,0,0,0.10)"
+    },
+
+    "Motion / Duration": {
+      "Hover": "180ms",
+      "Page": "400ms",
+      "Hero": "700ms",
+      "Hero Interval": "7000ms"
+    },
+
+    "Motion / Easing": {
+      "Standard": "cubic-bezier(.2, .7, .2, 1)",
+      "Out": "ease-out",
+      "InOut": "ease"
+    }
+  }
+}

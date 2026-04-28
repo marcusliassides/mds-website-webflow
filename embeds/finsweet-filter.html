@@ -1,0 +1,84 @@
+<!--
+  MDS — Finsweet Attributes (CMS Filter + CMS Sort).
+  Paste before </body> on /games and /careers.
+
+  Reference: https://www.finsweet.com/attributes/cms-filter
+
+  ===== Markup contract on /games =====
+
+  <div class="filter-bar" fs-cmsfilter-element="filters">
+    <!-- Status -->
+    <fieldset>
+      <legend class="t-eyebrow">Status</legend>
+      <label class="filter-pill">
+        <input type="checkbox" fs-cmsfilter-field="status" value="Live"> Live
+      </label>
+      <label class="filter-pill">
+        <input type="checkbox" fs-cmsfilter-field="status" value="Coming"> Coming
+      </label>
+    </fieldset>
+
+    <!-- Platform -->
+    <fieldset>
+      <legend class="t-eyebrow">Platform</legend>
+      <label class="filter-pill">
+        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="iOS"> Mobile
+      </label>
+      <label class="filter-pill">
+        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Roblox,Fortnite"> Creator platforms
+      </label>
+      <label class="filter-pill">
+        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Switch,PS5,Xbox,PC"> Console / PC
+      </label>
+      <label class="filter-pill">
+        <input type="checkbox" fs-cmsfilter-field="platform" fs-cmsfilter-type="any" value="Luna,Apple Arcade"> Cloud / streaming
+      </label>
+    </fieldset>
+
+    <!-- Studio -->
+    <fieldset>
+      <legend class="t-eyebrow">Studio</legend>
+      <label class="filter-pill">
+        <input type="checkbox" fs-cmsfilter-field="studio" fs-cmsfilter-type="any" value="Mattel163"> Mattel163
+      </label>
+      <label class="filter-pill">
+        <input type="checkbox" fs-cmsfilter-field="studio" fs-cmsfilter-type="any" value="Mattel Games Studio"> Mattel Games Studio
+      </label>
+      <label class="filter-pill">
+        <input type="checkbox" fs-cmsfilter-field="studio" fs-cmsfilter-type="any" value="Bandit Island"> Bandit Island
+      </label>
+    </fieldset>
+
+    <button type="reset" class="btn btn--ghost" fs-cmsfilter-element="reset">Clear filters</button>
+  </div>
+
+  <div fs-cmsfilter-element="list" class="grid-3">
+    <!-- Webflow CMS Collection List with .card-game items.
+         Each card needs the field values rendered into hidden text or
+         data attributes that match fs-cmsfilter-field above. -->
+  </div>
+
+  <div fs-cmsfilter-element="empty" hidden>
+    <p class="t-body-md muted">No games match your filters.</p>
+  </div>
+
+  ===== Markup contract on /careers =====
+  Same pattern with fs-cmsfilter-field set to "team", "department", "location".
+-->
+
+<!-- Finsweet Attributes loader (CMS Filter, CMS Sort, CMS Load) -->
+<script async src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsfilter@1/cmsfilter.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmssort@1/cmssort.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsload@1/cmsload.js"></script>
+
+<script>
+  /* Filter pill toggle visual state — Finsweet handles list filtering;
+     this just keeps the .is-active class in sync with the underlying
+     checkbox. Avoids needing a separate IX2 toggle.  */
+  document.addEventListener("change", function (e) {
+    var input = e.target;
+    if (!input.matches("[fs-cmsfilter-field]")) return;
+    var pill = input.closest(".filter-pill");
+    if (pill) pill.classList.toggle("is-active", input.checked);
+  });
+</script>

@@ -1,0 +1,99 @@
+{
+  "$schema": "IX2 specs for the MDS Webflow site. Each entry maps to a single interaction in Webflow Designer. The naming convention matches what to call the interaction in the IX2 panel.",
+  "interactions": [
+    {
+      "name": "Hero / Slide-in",
+      "trigger": "Page load (after preloader hides)",
+      "target": ".hero-copy",
+      "from": { "opacity": 0, "x": "-12px" },
+      "to":   { "opacity": 1, "x": "0px" },
+      "duration": 700,
+      "easing": "cubic-bezier(.2, .7, .2, 1)",
+      "notes": "Re-fired by the hero-rotator JS each time the slide changes — JS toggles the .hero-copy element's animation; this IX2 only handles the initial mount."
+    },
+    {
+      "name": "Hero / Glow drift A",
+      "trigger": "Page load → loop forever",
+      "target": ".hero-glow__a",
+      "keyframes": [
+        { "at": "0%",   "x": "0px",  "y": "0px",  "scale": 1 },
+        { "at": "50%",  "x": "20px", "y": "-10px", "scale": 1.05 },
+        { "at": "100%", "x": "0px",  "y": "0px",  "scale": 1 }
+      ],
+      "duration": 24000,
+      "easing": "ease-in-out",
+      "respectsReducedMotion": true
+    },
+    {
+      "name": "Hero / Glow drift B",
+      "trigger": "Page load → loop forever",
+      "target": ".hero-glow__b",
+      "keyframes": [
+        { "at": "0%",   "x": "0px",  "y": "0px",  "scale": 1 },
+        { "at": "50%",  "x": "-25px", "y": "10px", "scale": 1.08 },
+        { "at": "100%", "x": "0px",  "y": "0px",  "scale": 1 }
+      ],
+      "duration": 31000,
+      "easing": "ease-in-out",
+      "respectsReducedMotion": true
+    },
+    {
+      "name": "Section / Fade-up on scroll",
+      "trigger": "Scroll into view (offset 15%, only first time)",
+      "target": "[data-ix-fade-up]",
+      "from": { "opacity": 0, "y": "16px" },
+      "to":   { "opacity": 1, "y": "0px" },
+      "duration": 400,
+      "easing": "ease-out",
+      "notes": "Apply [data-ix-fade-up] to any major section that should reveal on scroll. One IX2 instance, attached site-wide via the attribute selector."
+    },
+    {
+      "name": "Card / Hover lift",
+      "trigger": "Mouse hover (in / out)",
+      "target": ".card, .card-game, .card-leader, .card-studio",
+      "in":  { "y": "-2px", "boxShadow": "0 8px 24px 0 rgba(0,0,0,0.10)" },
+      "out": { "y": "0px",  "boxShadow": "0 1px 2px 0 rgba(0,0,0,0.08)" },
+      "duration": 180,
+      "easing": "ease",
+      "respectsReducedMotion": true,
+      "notes": "Already covered by .card transition CSS; this IX2 is optional and primarily exists so editors can tweak in Designer without code."
+    },
+    {
+      "name": "Nav / Underline accent",
+      "trigger": "Mouse hover",
+      "target": ".nav__link",
+      "in":  { "color": "var(--mattel-red)" },
+      "out": { "color": "var(--text-primary)" },
+      "duration": 180,
+      "easing": "ease"
+    },
+    {
+      "name": "Button / Lift",
+      "trigger": "Mouse hover (in / out)",
+      "target": ".btn",
+      "in":  { "y": "-2px" },
+      "out": { "y": "0px" },
+      "duration": 180,
+      "easing": "ease",
+      "respectsReducedMotion": true
+    },
+    {
+      "name": "Filter pill / Toggle state",
+      "trigger": "Class is added (.is-active)",
+      "target": ".filter-pill",
+      "to": { "backgroundColor": "var(--mattel-red)", "color": "#fff", "borderColor": "transparent" },
+      "duration": 180,
+      "easing": "ease",
+      "notes": "Class toggling handled by Finsweet + the listener in embeds/finsweet-filter.html."
+    },
+    {
+      "name": "Cookie banner / Slide-up",
+      "trigger": "Element loads (#mds-cookie-banner)",
+      "target": "#mds-cookie-banner",
+      "from": { "opacity": 0, "y": "16px" },
+      "to":   { "opacity": 1, "y": "0px" },
+      "duration": 400,
+      "easing": "ease-out"
+    }
+  ]
+}
