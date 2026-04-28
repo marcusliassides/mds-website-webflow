@@ -56,7 +56,7 @@ Run this top to bottom before flipping DNS. Every box must be ticked.
 ## Analytics + consent
 
 - [ ] Cookie banner DOM from `embeds/body-global.html` is present in the Footer Symbol or a global embed.
-- [ ] GA4 measurement ID configured in a consent-gated snippet that loads only after `mds:consent-updated` reports `accepted: true`.
+- [ ] GA4 measurement ID configured in a consent-gated snippet that loads only after `mds:consent-change` reports `detail.accepted === true` or `mds:consent-accepted` fires.
 - [ ] Cookie banner appears once on first visit, suppressed after acceptance or decline.
 - [ ] Consent state persists across reload (check localStorage for `mds-cookie-consent`).
 - [ ] No third-party trackers fire before consent is granted.

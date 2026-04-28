@@ -5,7 +5,7 @@
 
   Markup contract — build this in Webflow Designer:
 
-    <section class="section-hero" data-hero-rotator
+    <section class="section-hero" data-hero-rotator role="region" tabindex="0"
              aria-roledescription="carousel"
              aria-label="Featured MDS stories"
              aria-keyshortcuts="ArrowLeft ArrowRight">
@@ -252,5 +252,16 @@
   @keyframes mds-hero-bar {
     from { transform: scaleX(0); }
     to   { transform: scaleX(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-copy {
+      animation: none !important;
+      transform: none !important;
+    }
+    .hero-dot[aria-current="true"] .hero-dot__bar,
+    .hero-dot[aria-current="true"] .hero-dot__bar::after {
+      animation: none !important;
+      transform: none !important;
+    }
   }
 </style>

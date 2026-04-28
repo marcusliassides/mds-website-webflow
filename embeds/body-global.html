@@ -39,11 +39,23 @@
     // Initialise toggles to current state
     applyTheme(document.documentElement.getAttribute("data-theme") || "light");
 
+    /* ===== Mobile nav =====
+       Use [data-nav-toggle] with aria-controls pointing at [data-nav-menu]. */
+    document.addEventListener("click", function (e) {
+      var toggle = e.target.closest("[data-nav-toggle]");
+      if (!toggle) return;
+      var nav = toggle.closest(".nav");
+      var expanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
+      if (nav) nav.classList.toggle("is-open", !expanded);
+    });
+
     /* ===== Cookie consent =====
        Show banner once. Marks acceptance in localStorage.
        Banner element: #mds-cookie-banner with [data-cookie-accept] and
        [data-cookie-decline] controls inside. Analytics snippets should load
-       only after the mds:consent-change event reports accepted=true. */
+       only after mds:consent-change or mds:consent-updated reports
+       detail.accepted=true, or after mds:consent-accepted fires. */
     var CONSENT_KEY = "mds-cookie-consent";
     var banner = document.getElementById("mds-cookie-banner");
     if (banner) {
@@ -58,9 +70,9 @@
         if (!accept && !decline) return;
         try { localStorage.setItem(CONSENT_KEY, accept ? "accepted" : "declined"); } catch (e) {}
         banner.setAttribute("hidden", "");
-        window.dispatchEvent(new CustomEvent("mds:consent-change", {
-          detail: { accepted: Boolean(accept) }
-        }));
+        var detail = { accepted: Boolean(accept) };
+        window.dispatchEvent(new CustomEvent("mds:consent-change", { detail: detail }));
+        window.dispatchEvent(new CustomEvent("mds:consent-updated", { detail: detail }));
         if (accept) window.dispatchEvent(new CustomEvent("mds:consent-accepted"));
       });
     }
@@ -77,7 +89,6 @@
 <!-- Cookie banner template — required when analytics are enabled. Copy this
      into the footer of your Designer layout, or paste a Webflow custom Embed
      in the same spot. -->
-<!--
 <div id="mds-cookie-banner" hidden role="dialog" aria-label="Cookie preferences" class="cookie-banner">
   <p class="t-body-sm">We use a minimal set of cookies for analytics. See our <a href="/accessibility#privacy">Privacy notice</a>.</p>
   <div class="cluster">
@@ -85,4 +96,3 @@
     <button class="btn btn--primary" data-cookie-accept>Accept</button>
   </div>
 </div>
--->

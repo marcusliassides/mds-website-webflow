@@ -30,7 +30,7 @@ Field types for each collection, ready to recreate in Webflow CMS. Match the col
 | Tag         | Option (Announcement, Partnership, Launch, Strategy, Corporate) |
 | Date        | Date |
 | Byline      | Plain Text |
-| RelatedGame | Reference to Games (optional) |
+| RelatedGames | Multi-reference to Games (optional) |
 | Summary     | Rich Text (1 paragraph) |
 | Body        | Rich Text |
 
@@ -77,7 +77,7 @@ Field types for each collection, ready to recreate in Webflow CMS. Match the col
 
 For Finsweet filtering, render normalized hidden field values in collection items:
 `status`, `platform`, `studio`, `tag`, `team`, `department`, `location`, and optional `game`.
-Use comma-separated filter input values for groups such as `iOS,Android`; item text may use
+Use comma-separated filter input values for groups such as `iOS, Android`; item text may use
 spaces or the CMS display string as long as every token is present.
 
 ## Press Kit Assets

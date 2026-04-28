@@ -62,7 +62,7 @@ Keep the **Nav** and **Footer** as Webflow Symbols so a single edit propagates.
 Site Settings → **Custom Code**.
 
 - **Head Code**: paste `embeds/head-global.html` and the Organization + WebSite JSON-LD blocks from `embeds/json-ld.html`.
-- **Footer Code**: paste `embeds/body-global.html`, then add the cookie banner markup from the bottom of that file to the global footer Symbol.
+- **Footer Code**: paste `embeds/body-global.html`. It includes the mobile nav toggle wiring, theme toggle wiring, and required cookie banner markup.
 
 Page-specific:
 - Homepage: `embeds/hero-rotator.html` in the page-level Footer Code.

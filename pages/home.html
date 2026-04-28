@@ -28,7 +28,8 @@
   <header class="nav">
     <div class="nav__inner">
       <a href="/" class="nav__logo" aria-label="Mattel Digital Studios home">MDS</a>
-      <nav aria-label="Primary">
+      <button type="button" class="nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav aria-label="Primary" id="primary-nav" data-nav-menu>
         <ul class="nav__links">
           <li><a class="nav__link" href="/games">Games</a></li>
           <li><a class="nav__link" href="/studios">Studios</a></li>
@@ -52,9 +53,11 @@
          Breakpoint: stack to single column at <= 980px.
          ===================================================================== -->
     <section class="section-hero" data-hero-rotator
+             role="region"
              aria-roledescription="carousel"
              aria-label="Featured MDS stories"
-             aria-keyshortcuts="ArrowLeft ArrowRight">
+             aria-keyshortcuts="ArrowLeft ArrowRight"
+             tabindex="0">
       <div class="hero-glow" aria-hidden="true">
         <div class="hero-glow__a" style="top:-20%;left:-10%;width:70%;height:120%;background:radial-gradient(closest-side,#7A34B755,transparent 70%);"></div>
         <div class="hero-glow__b" style="top:10%;right:-15%;width:60%;height:90%;background:radial-gradient(closest-side,#EA002940,transparent 70%);"></div>

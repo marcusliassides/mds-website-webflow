@@ -33,12 +33,14 @@
 
         <!-- Tag filter — Finsweet, single-select -->
         <div class="filter-bar" fs-cmsfilter-element="filters" role="group" aria-label="Filter news">
-          <span class="t-eyebrow" style="margin-right:12px">Tag</span>
-          <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Announcement" class="sr-only"> Announcement</label>
-          <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Partnership" class="sr-only"> Partnership</label>
-          <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Launch" class="sr-only"> Launch</label>
-          <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Strategy" class="sr-only"> Strategy</label>
-          <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Corporate" class="sr-only"> Corporate</label>
+          <fieldset style="border:0;padding:0;margin:0;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <legend class="t-eyebrow" style="float:left;margin-right:12px">Tag</legend>
+            <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Announcement" class="sr-only"> Announcement</label>
+            <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Partnership" class="sr-only"> Partnership</label>
+            <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Launch" class="sr-only"> Launch</label>
+            <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Strategy" class="sr-only"> Strategy</label>
+            <label class="filter-pill"><input type="radio" name="tag" fs-cmsfilter-field="tag" value="Corporate" class="sr-only"> Corporate</label>
+          </fieldset>
           <button type="reset" class="btn btn--ghost" fs-cmsfilter-element="reset" style="margin-left:auto">Clear</button>
         </div>
 
@@ -91,6 +93,10 @@
           </a>
 
           <!-- …more CMS items… -->
+        </div>
+
+        <div fs-cmsfilter-element="empty" hidden style="padding:48px 0;text-align:center">
+          <p class="t-body-md muted">No news items match this filter.</p>
         </div>
 
         <!-- Pagination — use Webflow native pagination on the Collection List, 12 per page -->
